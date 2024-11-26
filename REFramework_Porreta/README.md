@@ -1,5 +1,6 @@
 ### Documentation is included in the Documentation folder ###
 
+See updates at [Documentation/Updates.md](https://github.com/Samuca47prog/UiPath_REFramework_Porreta/blob/main/REFramework_Porreta/Documentation/Updates.md)
 
 ### REFrameWork Template ###
 **Robotic Enterprise Framework**
