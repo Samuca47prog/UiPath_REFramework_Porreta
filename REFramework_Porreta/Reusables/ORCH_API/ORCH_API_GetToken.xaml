@@ -11,7 +11,7 @@
       <Literal x:TypeArguments="x:String">https://staging.uipath.com/identity_/connect/token</Literal>
     </InArgument>
   </this:API_GetToken.in_Url>
-  <sap:VirtualizedContainerService.HintSize>856,1136</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>856,587.3333333333334</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -117,9 +117,11 @@
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Getting an Access Token is needed for doing HTTP requests to the Orchestrator.&#xD;&#xA;&#xD;&#xA;Official Documentation: &#xD;&#xA;https://docs.uipath.com/document-understanding/automation-cloud/latest/api-guide/using-the-credentials-with-the-external-application#get-an-access-token" DisplayName="API_GetToken" sap:VirtualizedContainerService.HintSize="512,1071.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="Getting an Access Token is needed for doing HTTP requests to the Orchestrator.&#xD;&#xA;&#xD;&#xA;Official Documentation: &#xD;&#xA;https://docs.uipath.com/document-understanding/automation-cloud/latest/api-guide/using-the-credentials-with-the-external-application#get-an-access-token" DisplayName="API_GetToken" sap:VirtualizedContainerService.HintSize="512,522.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="responseJson" />
+      <Variable x:TypeArguments="x:Int32" Name="responseStatus" />
+      <Variable x:TypeArguments="x:String" Name="responseContent" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -128,21 +130,19 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Getting new access token...&quot;]" />
-    <Sequence DisplayName="Get access Token" sap:VirtualizedContainerService.HintSize="450,479.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Make Http request - Get access Token" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="ClientId" />
         <Variable x:TypeArguments="ss:SecureString" Name="ClientSecret" />
-        <Variable x:TypeArguments="x:Int32" Name="responseStatus" />
-        <Variable x:TypeArguments="x:String" Name="responseContent" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_ExtAppCredName]" CacheStrategy="None" DisplayName="Get Credential - Machines Maintenance Ext App" FolderPath="[in_ExtAppCredFolder]" sap:VirtualizedContainerService.HintSize="388,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[ClientSecret]" Username="[ClientId]" />
-      <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Get Access Token" AuthenticationType="None" BodyFormat="application/x-www-form-urlencoded" DisplayName="HTTP Request - Get Access Token" EnableSSLVerification="True" EndPoint="[in_Url]" sap:VirtualizedContainerService.HintSize="388,134.66666666666666" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="POST" Result="[responseContent]" StatusCode="[responseStatus]" TimeoutMS="6000">
+      <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Get Access Token" AuthenticationType="None" BodyFormat="application/x-www-form-urlencoded" DisplayName="HTTP Request - Get Access Token" EnableSSLVerification="True" EndPoint="[in_Url]" sap:VirtualizedContainerService.HintSize="388,125.33333333333333" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="POST" Result="[responseContent]" StatusCode="[responseStatus]" TimeoutMS="6000">
         <ui:HttpClient.Attachments>
           <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
         </ui:HttpClient.Attachments>
@@ -168,13 +168,21 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:HttpClient>
-      <Switch x:TypeArguments="x:Int32" DisplayName="Switch - Http request" Expression="[responseStatus]" sap:VirtualizedContainerService.HintSize="388,48" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    </Sequence>
+    <Sequence DisplayName="Evaluate Http response code" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="Sequence_12">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Switch x:TypeArguments="x:Int32" DisplayName="Switch - Http request" Expression="[responseStatus]" sap:VirtualizedContainerService.HintSize="496.6666666666667,225.33333333333334" sap2010:WorkflowViewState.IdRef="Switch`1_1">
         <Switch.Default>
           <Throw DisplayName="Throw - Http response not mapped" Exception="[New SystemException(&quot;Http response not mapped&quot; + &quot; - The error code &quot; + responseStatus.ToString + &quot; was not mapped. Response content was '&quot; + responseContent + &quot;'&quot;)]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_1" />
         </Switch.Default>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -186,7 +194,7 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;200 - OK: to &quot; + in_url + &quot; -- The request was successful, and the server returned the requested data.&quot;]" />
         </Sequence>
-        <Sequence x:Key="400" DisplayName="Actions for code 400" sap:VirtualizedContainerService.HintSize="416,255.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence x:Key="400" DisplayName="Actions for code 400" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -203,15 +211,52 @@
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Error" Message="[&quot;404 - Not Found: to &quot; + in_url + &quot; -- The server cannot find the requested resource.&quot;]" />
         </Sequence>
       </Switch>
+      <If sap2010:Annotation.AnnotationText="Throw exception if response code is 400 or 500 series" Condition="[(responseStatus Mod 100) = 4 Or&#xD;&#xA;(responseStatus Mod 100) = 5]" DisplayName="If - response status is in these series" sap:VirtualizedContainerService.HintSize="496.6666666666667,421.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,202.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Throw DisplayName="Throw - Response code returned error" Exception="[New SystemException(&quot;Response code returned error&quot; + &quot; - Status code &quot; + responseStatus.ToString + &quot; was returned. Response content was &quot; + responseContent)]" sap:VirtualizedContainerService.HintSize="354,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_2" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
     </Sequence>
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON - Response from Get Token" sap:VirtualizedContainerService.HintSize="450,124" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[ResponseJson]" JsonString="[responseContent]" />
-    <Assign DisplayName="Assign - Access Token" sap:VirtualizedContainerService.HintSize="450,108" sap2010:WorkflowViewState.IdRef="Assign_1">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[out_AccessToken]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">["Bearer " + ResponseJson("access_token").ToString]</InArgument>
-      </Assign.Value>
-    </Assign>
+    <Sequence DisplayName="Map output to variables" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Sequence_13">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON - Https response" sap:VirtualizedContainerService.HintSize="434,124" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[Responsejson]" JsonString="[responseContent]" />
+      <Assign DisplayName="Assign - Access Token" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_AccessToken]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">["Bearer " + ResponseJson("access_token").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
   </Sequence>
 </Activity>
