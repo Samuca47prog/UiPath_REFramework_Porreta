@@ -5,9 +5,11 @@
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.23.4]",
+    "UiPath.Mail.Activities": "[1.15.2]",
     "UiPath.System.Activities": "[24.10.3]",
     "UiPath.Testing.Activities": "[24.10.0]",
-    "UiPath.UIAutomation.Activities": "[24.10.0]"
+    "UiPath.UIAutomation.Activities": "[24.10.0]",
+    "UiPath.WebAPI.Activities": "[1.21.1-beta.6744221]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -97,7 +99,13 @@
         "testCaseId": "d524da46-5bab-4162-b6fe-571052141b32",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\KillProcesses_TestCase.xaml"
+        "fileName": "Tests\\Reusables\\KillProcesses_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "8dc64ce0-4a90-4d63-8482-45e388af2b26",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Reusables\\ORCH_API\\ORCH_API_GetToken_TestCase.xaml"
       }
     ],
     "saveToCloud": false
