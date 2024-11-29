@@ -6,6 +6,7 @@
   "dependencies": {
     "UiPath.Excel.Activities": "[2.23.4]",
     "UiPath.Mail.Activities": "[1.15.2]",
+    "UiPath.MicrosoftOffice365.Activities": "[2.8.11-preview]",
     "UiPath.System.Activities": "[24.10.3]",
     "UiPath.Testing.Activities": "[24.10.0]",
     "UiPath.UIAutomation.Activities": "[24.10.0]",
@@ -105,13 +106,20 @@
         "editingStatus": "InProgress",
         "testCaseId": "8dc64ce0-4a90-4d63-8482-45e388af2b26",
         "testCaseType": "TestCase",
-        "fileName": "Tests\\Reusables\\ORCH_API\\ORCH_API_GetToken_TestCase.xaml"
+        "fileName": "Tests\\Reusables\\OrchApi\\OrchApi_GetToken_TestCase.xaml"
       },
       {
         "editingStatus": "InProgress",
         "testCaseId": "6329190b-b97f-4f02-b524-841daaec5fd6",
         "testCaseType": "TestCase",
-        "fileName": "Tests\\Reusables\\ORCH_API\\ORCH_API_GetToken_WithError_TestCase.xaml"
+        "fileName": "Tests\\Reusables\\OrchApi\\OrchApi_GetToken_WithError_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "0ddf95e4-e062-4fab-8658-ea6b9831509e",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Reusables\\Email\\SendEmail\\SendEmail_IntegrationsService_TestCase.xaml"
       }
     ],
     "saveToCloud": false
