@@ -38,6 +38,10 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -84,6 +88,12 @@
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="SendEmail_IntegrationsService_TestCase" sap:VirtualizedContainerService.HintSize="512,1066.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -99,16 +109,18 @@
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="ImageReplacements" />
         <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="TextReplacements" />
+        <Variable x:TypeArguments="scg:Dictionary(x:String, sd:DataTable)" Name="TableReplacements" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Metadata_Replacements - Invoke Workflow File (Reusables\Email\Metadata\Metadata_Replacements.xaml)" sap:VirtualizedContainerService.HintSize="388,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Tests\Reusables\Email\Metadata\Metadata_Replacements.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Metadata_Replacements - Invoke Workflow File (Reusables\Email\Metadata\Metadata_Replacements.xaml)" sap:VirtualizedContainerService.HintSize="388,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Reusables\Email\Metadata\Metadata_Replacements.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_TextReplacements">[TextReplacements]</OutArgument>
           <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_ImageReplacements">[ImageReplacements]</OutArgument>
+          <OutArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataTable)" x:Key="out_TableReplacements">[TableReplacements]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Metadata_BuildBody - Invoke Workflow File (Reusables\Email\Metadata\Metadata_BuildBody.xaml)" sap:VirtualizedContainerService.HintSize="388,200.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Reusables\Email\Metadata\Metadata_BuildBody.xaml">
@@ -117,7 +129,7 @@
           <OutArgument x:TypeArguments="x:String" x:Key="out_Body">[Body]</OutArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_TextReplacements">[TextReplacements]</InArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_ImageReplacements">[ImageReplacements]</InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataTable)" x:Key="in_TableReplacements" />
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataTable)" x:Key="in_TableReplacements">[TableReplacements]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>

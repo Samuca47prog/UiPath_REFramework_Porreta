@@ -43,7 +43,9 @@
       "privateWorkflows": []
     },
     "processOptions": {
-      "ignoredFiles": []
+      "ignoredFiles": [
+        "Reusables/Email/Metadata/Metadata_Replacements.xaml"
+      ]
     },
     "fileInfoCollection": [
       {
@@ -113,12 +115,6 @@
         "testCaseId": "6329190b-b97f-4f02-b524-841daaec5fd6",
         "testCaseType": "TestCase",
         "fileName": "Tests\\Reusables\\OrchApi\\OrchApi_GetToken_WithError_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "bf9db7f2-f57f-4d05-a9d8-b35d1c2e7375",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Reusables\\Email\\Metadata\\Metadata_Replacements.xaml"
       },
       {
         "editingStatus": "InProgress",
