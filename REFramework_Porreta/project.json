@@ -116,10 +116,23 @@
       },
       {
         "editingStatus": "InProgress",
+        "testCaseId": "bf9db7f2-f57f-4d05-a9d8-b35d1c2e7375",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Reusables\\Email\\Metadata\\Metadata_Replacements.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "9078fc7e-e7f7-459f-9784-ccb3c361ce19",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Reusables\\Email\\Metadata\\Metadata_BuildBody_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
         "testCaseId": "0ddf95e4-e062-4fab-8658-ea6b9831509e",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Reusables\\Email\\SendEmail\\SendEmail_IntegrationsService_TestCase.xaml"
+        "fileName": "Tests\\Reusables\\Email\\SendEmail\\SendEmail_IntegrationsService_TestCase.xaml"
       }
     ],
     "saveToCloud": false

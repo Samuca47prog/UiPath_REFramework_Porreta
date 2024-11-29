@@ -12,7 +12,8 @@
             background-color: #f9f9f9;
         }
         .email-container {
-            max-width: 600px;
+            max-width: 800px;
+            width: 100%;
             margin: 20px auto;
             background: #ffffff;
             border: 1px solid #ddd;
@@ -30,6 +31,12 @@
             color: #333333;
             line-height: 1.5;
         }
+        .email-body img {
+            max-width: 100%;
+            height: auto;
+            display: block; 
+            margin: 10px auto; 
+        }
         .email-footer {
             background-color: #f1f1f1;
             text-align: center;
@@ -45,11 +52,13 @@
             <h1>Welcome!</h1>
         </div>
         <div class="email-body">
-            <p>Dear [Recipient's Name],</p>
+            <p>Dear {{Recipient_Name}},</p>
             <p>This is a simple email template designed to be used for your messages.</p>
             <p>Feel free to customize the content and styling as needed.</p>
             <p>Best regards,</p>
             <p>Your Team</p>
+            {{Wally_robot}}
+            {{Atom_robot}}
         </div>
         <div class="email-footer">
             <p>© 2024 Your Company. All rights reserved.</p>
