@@ -106,6 +106,12 @@
         "testCaseId": "8dc64ce0-4a90-4d63-8482-45e388af2b26",
         "testCaseType": "TestCase",
         "fileName": "Tests\\Reusables\\ORCH_API\\ORCH_API_GetToken_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "6329190b-b97f-4f02-b524-841daaec5fd6",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Reusables\\ORCH_API\\ORCH_API_GetToken_WithError_TestCase.xaml"
       }
     ],
     "saveToCloud": false
