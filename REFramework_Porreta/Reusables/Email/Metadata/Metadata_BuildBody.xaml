@@ -6,7 +6,7 @@
     <x:Property sap2010:Annotation.AnnotationText="Dictionary of images and its paths to be replaced in the Body html. &#xD;&#xA;keys that appear as {{image}} in the html will be replaced by the value assigned in this dictionary." Name="in_ImageReplacements" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="in_TableReplacements" Type="InArgument(scg:Dictionary(x:String, sd:DataTable))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1402.6666666666667,2090</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1402.6666666666667,2209.3333333333335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -108,7 +108,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Build Body" sap:VirtualizedContainerService.HintSize="750,2025.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+  <Sequence DisplayName="Build Body" sap:VirtualizedContainerService.HintSize="750,2144.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_8">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -173,13 +173,13 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence DisplayName="Images" sap:VirtualizedContainerService.HintSize="688,965.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence DisplayName="Images" sap:VirtualizedContainerService.HintSize="688,1084.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[Not IsNothing(in_ImageReplacements)]" DisplayName="If - Any replacement for Images was given" sap:VirtualizedContainerService.HintSize="626,845.3333333333334" sap2010:WorkflowViewState.IdRef="If_2">
+      <If Condition="[Not IsNothing(in_ImageReplacements)]" DisplayName="If - Any replacement for Images was given" sap:VirtualizedContainerService.HintSize="626,964.6666666666666" sap2010:WorkflowViewState.IdRef="If_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -187,19 +187,19 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,657.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,776.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each Image Replacement" sap:VirtualizedContainerService.HintSize="530,569.3333333333334" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_ImageReplacements]">
+            <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each Image Replacement" sap:VirtualizedContainerService.HintSize="530,688.6666666666666" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_ImageReplacements]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, x:String)">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, x:String)" Name="currentImage" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,430.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,550" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="imageAsString" />
                       <Variable x:TypeArguments="x:String" Name="srcImageTag" />
@@ -209,6 +209,13 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+                    <ui:Comment sap2010:Annotation.AnnotationText="Verify if the image exists" DisplayName="Comment - TODO" sap:VirtualizedContainerService.HintSize="434,119.33333333333333" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Write your comments in the Text property">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:Comment>
                     <Assign DisplayName="Assign - Image as string" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[imageAsString]</OutArgument>
@@ -222,7 +229,7 @@
                         <OutArgument x:TypeArguments="x:String">[srcImageTag]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;img src=""data:image/" + Path.GetExtension(currentImage.Value).Replace(".", "") + ";base64," + imageAsString +  """ alt=""" + currentImage.Key + """&gt;"]</InArgument>
+                        <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;img src=""data:image/" + Path.GetExtension(currentImage.Value).Replace(".", "") + ";base64," + imageAsString +  """ alt=""" + currentImage.Key + """ style=""max-width: 100%; height: auto;""&gt;"]</InArgument>
                       </Assign.Value>
                     </Assign>
                     <Assign DisplayName="Assign - Replace Body value" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_2">

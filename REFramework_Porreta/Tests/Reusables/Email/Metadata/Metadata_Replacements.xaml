@@ -3,7 +3,7 @@
     <x:Property Name="out_TextReplacements" Type="OutArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="out_ImageReplacements" Type="OutArgument(scg:Dictionary(x:String, x:String))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1402.6666666666667,434</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1402.6666666666667,599.3333333333334</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -116,7 +116,8 @@
       <Assign.Value>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" xml:space="preserve">[New Dictionary(Of String, String) From {
 	{"Wally_robot", "Tests/Assets/images/wally robot.jpg"},
-	{"Atom_robot", "Tests/Assets/images/Atom robot.png"}
+	{"Atom_robot", "Tests/Assets/images/Atom robot.png"},
+	{"r2d2_robot", "Tests/Assets/images/r2d2 too big image.jpg"}
 }]</InArgument>
       </Assign.Value>
     </Assign>
