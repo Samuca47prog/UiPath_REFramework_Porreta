@@ -129,6 +129,13 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Reusables\\Email\\SendEmail\\SendEmail_IntegrationsService_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "178291e4-3ae3-434c-96b3-06750fe6ba8a",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Reusables\\Email\\Metadata\\Metadata_Attachments_TestCase.xaml"
       }
     ],
     "saveToCloud": false

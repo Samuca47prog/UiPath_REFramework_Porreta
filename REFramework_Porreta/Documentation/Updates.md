@@ -1,5 +1,11 @@
 ## Cycle 2
 
+### Send Email
+
+
+### Doc String template
+
+
 ### HTTP Requests code snippet
 API_HTTPS.xaml is a code snippet used to speed up implementations of http requests.
 
