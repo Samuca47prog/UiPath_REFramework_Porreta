@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1380.6666666666667,2764.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1380.6666666666667,809.3333333333334</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Metadata_Attachments_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -91,15 +91,15 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Input by folder and files paths&#xD;&#xA;&#xD;&#xA;TODO&#xD;&#xA;Method to filter files" DisplayName="Metadata_Attachments" sap:VirtualizedContainerService.HintSize="766,2700" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Input by folder and files paths&#xD;&#xA;&#xD;&#xA;TODO&#xD;&#xA;Method to filter files&#xD;&#xA;&#xD;&#xA;IDEA&#xD;&#xA;Become a idea under Paths reusables" DisplayName="Metadata_Attachments" sap:VirtualizedContainerService.HintSize="512,616" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="704,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Getting attachments list...&quot;]" />
-    <Assign DisplayName="Assign - Instantiate list of attachments" sap:VirtualizedContainerService.HintSize="704,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Getting attachments list...&quot;]" />
+    <Assign DisplayName="Assign - Instantiate list of attachments" sap:VirtualizedContainerService.HintSize="450,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(x:String)">[out_AttachmentsPaths]</OutArgument>
       </Assign.To>
@@ -107,23 +107,23 @@
         <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Sequence DisplayName="Get files from Folders" sap:VirtualizedContainerService.HintSize="704,1069.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Get files from Folders" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="si:DirectoryInfo" Name="FolderInfo" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each folder" sap:VirtualizedContainerService.HintSize="642,949.3333333333334" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_Folders]">
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each folder" sap:VirtualizedContainerService.HintSize="450,443.3333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_Folders]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:String">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:String" Name="folder" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="608,810.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,304.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <Sequence.Variables>
                 <Variable x:TypeArguments="s:String[]" Name="FilesInCurrentFolder" />
                 <Variable x:TypeArguments="x:Boolean" Name="FolderExists" />
@@ -133,8 +133,14 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:FolderExistsX DisplayName="Folder Exists" Exists="[FolderExists]" sap:VirtualizedContainerService.HintSize="546,168.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[folder]" />
-              <If Condition="[FolderExists]" DisplayName="If - Fodler Exists" sap:VirtualizedContainerService.HintSize="546,554" sap2010:WorkflowViewState.IdRef="If_1">
+              <ui:FolderExistsX DisplayName="Folder Exists" Exists="[FolderExists]" sap:VirtualizedContainerService.HintSize="354,168.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[folder]" />
+              <If Condition="[FolderExists]" DisplayName="If - Fodler Exists" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="If_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,136" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <sap:WorkflowViewStateService.ViewState>
@@ -178,10 +184,11 @@
         </ui:ForEach.Body>
       </ui:ForEach>
     </Sequence>
-    <Sequence DisplayName="Concatenate given files paths" sap:VirtualizedContainerService.HintSize="704,1170" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence DisplayName="Concatenate given files paths" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Sequence_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each file" sap:VirtualizedContainerService.HintSize="546,1059.3333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_Files]">
