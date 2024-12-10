@@ -1,15 +1,24 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SendEmail_IntegrationsService" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umam="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SendEmail_IntegrationsService" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umam="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_Recipients" Type="InArgument(scg:IEnumerable(x:String))" />
+    <x:Property Name="in_Recipients" Type="InArgument(s:String[])" />
     <x:Property Name="in_Subject" Type="InArgument(x:String)" />
     <x:Property Name="in_Body" Type="InArgument(x:String)" />
+    <x:Property Name="in_Attachments" Type="InArgument(s:String[])" />
+    <x:Property Name="in_CC" Type="InArgument(s:String[])" />
+    <x:Property Name="in_BCC" Type="InArgument(s:String[])" />
   </x:Members>
   <this:SendEmail_IntegrationsService.in_Recipients>
-    <InArgument x:TypeArguments="scg:IEnumerable(x:String)" />
+    <InArgument x:TypeArguments="s:String[]" />
   </this:SendEmail_IntegrationsService.in_Recipients>
   <this:SendEmail_IntegrationsService.in_Subject>
     <InArgument x:TypeArguments="x:String" />
   </this:SendEmail_IntegrationsService.in_Subject>
+  <this:SendEmail_IntegrationsService.in_CC>
+    <InArgument x:TypeArguments="s:String[]" />
+  </this:SendEmail_IntegrationsService.in_CC>
+  <this:SendEmail_IntegrationsService.in_BCC>
+    <InArgument x:TypeArguments="s:String[]" />
+  </this:SendEmail_IntegrationsService.in_BCC>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
@@ -51,6 +60,7 @@
       <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
       <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -107,16 +117,21 @@
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendEmail_IntegrationsService" sap:VirtualizedContainerService.HintSize="416,700.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendEmail_IntegrationsService" sap:VirtualizedContainerService.HintSize="1440.6666666666665,775.3733333333332" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Sending email with Integrations Service...&quot;]" />
-    <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" ConnectionAccountName="{x:Null}" AttachmentInputMode="Existing" AttachmentPaths="{x:Null}" Attachments="{x:Null}" AuthScopesInvalid="False" Bcc="{x:Null}" Body="[in_Body]" Cc="{x:Null}" ConnectionId="a8eba03f-88de-4074-966b-8aabdba73215" ContinueOnError="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="354,436" sap2010:WorkflowViewState.IdRef="SendMailConnections_1" Importance="Normal" InputType="HTML" Mailbox="{x:Null}" ReplyTo="{x:Null}" SaveAsDraft="True" SingleAttachment="{x:Null}" Subject="[in_Subject]" TextBody="{x:Null}" To="[in_Recipients]" UseConnectionService="True" UseSharedMailbox="False">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Sending email with Integrations Service...&quot;]" />
+    <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" Attachments="[in_Attachments.Select(Function(x) LocalResource.FromPath(x))]" AuthScopesInvalid="False" Bcc="[in_BCC]" Body="[in_Body]" Cc="[in_CC]" ConnectionId="a8eba03f-88de-4074-966b-8aabdba73215" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="416,436" sap2010:WorkflowViewState.IdRef="SendMailConnections_1" Importance="Normal" InputType="HTML" SaveAsDraft="True" Subject="[in_Subject]" To="[in_Recipients]" UseConnectionService="True" UseSharedMailbox="False">
       <umam:SendMailConnections.AttachmentsBackup>
         <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
           <usau:BackupSlot.BackupValues>

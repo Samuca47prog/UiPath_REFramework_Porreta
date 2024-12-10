@@ -1,8 +1,28 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="SendEmail" this:SendEmail.in_BodyHtmlFilePath="Data/HtmlTemplates/Body.html" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_BodyHtmlFilePath" Type="InArgument(x:String)" />
-    <x:Property Name="in_BodyReplacements" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="in_Subject" Type="InArgument(x:String)" />
+    <x:Property Name="in_AttachmentsFolders" Type="InArgument(s:String[])" />
+    <x:Property Name="in_AttachmentsFiles" Type="InArgument(s:String[])" />
+    <x:Property Name="in_TextReplacements" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="in_ImageReplacements" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="in_TableReplacements" Type="InArgument(scg:Dictionary(x:String, sd:DataTable))" />
   </x:Members>
+  <this:SendEmail.in_Subject>
+    <InArgument x:TypeArguments="x:String" />
+  </this:SendEmail.in_Subject>
+  <this:SendEmail.in_AttachmentsFolders>
+    <InArgument x:TypeArguments="s:String[]" />
+  </this:SendEmail.in_AttachmentsFolders>
+  <this:SendEmail.in_AttachmentsFiles>
+    <InArgument x:TypeArguments="s:String[]" />
+  </this:SendEmail.in_AttachmentsFiles>
+  <this:SendEmail.in_ImageReplacements>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" />
+  </this:SendEmail.in_ImageReplacements>
+  <this:SendEmail.in_TableReplacements>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataTable)" />
+  </this:SendEmail.in_TableReplacements>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
@@ -45,6 +65,8 @@
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -99,11 +121,22 @@
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This send email " DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="512,848" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This send email " DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="1423.3333333333333,1002" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BodyAsHtml" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="Attachments" />
+      <Variable x:TypeArguments="s:String[]" Name="CC" />
+      <Variable x:TypeArguments="s:String[]" Name="BCC" />
+      <Variable x:TypeArguments="s:String[]" Name="Recipients" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -111,36 +144,54 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="TODO&#xD;&#xA;Use arguments? Config values? Assets?" DisplayName="Recipients" sap:VirtualizedContainerService.HintSize="450,182" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence sap2010:Annotation.AnnotationText="TODO&#xA;Use arguments? Config values? Assets?" DisplayName="Recipients" sap:VirtualizedContainerService.HintSize="468,245.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Assign - Recipients" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="s:String[]">[Recipients]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="s:String[]">[{"samuelsimao47@gmail.com"}]</InArgument>
+        </Assign.Value>
+      </Assign>
     </Sequence>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Metadata_BuildBody - Invoke Workflow File (Reusables\Email\Metadata\Metadata_BuildBody.xaml)" sap:VirtualizedContainerService.HintSize="450,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Reusables\Email\Metadata\Metadata_BuildBody.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Metadata_BuildBody - Invoke Workflow File (Reusables\Email\Metadata\Metadata_BuildBody.xaml)" sap:VirtualizedContainerService.HintSize="468,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Reusables\Email\Metadata\Metadata_BuildBody.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_BodyHtmlFilePath" />
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Body" />
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_TextReplacements" />
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_ImageReplacements" />
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataTable)" x:Key="in_TableReplacements" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_BodyHtmlFilePath">[in_BodyHtmlFilePath]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Body">[BodyAsHtml]</OutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_TextReplacements">[in_TextReplacements]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_ImageReplacements">[in_ImageReplacements]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataTable)" x:Key="in_TableReplacements">[in_TableReplacements]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Metadata_Attachments - Invoke Workflow File (Reusables\Email\Metadata\Metadata_Attachments.xaml)" sap:VirtualizedContainerService.HintSize="450,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Reusables\Email\Metadata\Metadata_Attachments.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Metadata_Attachments - Invoke Workflow File (Reusables\Email\Metadata\Metadata_Attachments.xaml)" sap:VirtualizedContainerService.HintSize="468,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Reusables\Email\Metadata\Metadata_Attachments.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="s:String[]" x:Key="in_Folders" />
-        <InArgument x:TypeArguments="s:String[]" x:Key="in_Files" />
-        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_AttachmentsPaths" />
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_Folders">[in_AttachmentsFolders]</InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_Files">[in_AttachmentsFiles]</InArgument>
+        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_AttachmentsPaths">[Attachments]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Sequence DisplayName="Send email" sap:VirtualizedContainerService.HintSize="450,127.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Send email" sap:VirtualizedContainerService.HintSize="468,283.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_IntegrationsService - Invoke Workflow File (Reusables\Email\SendEmail\SendEmail_IntegrationsService.xaml)" sap:VirtualizedContainerService.HintSize="416,200.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Reusables\Email\SendEmail\SendEmail_IntegrationsService.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_Recipients">[Recipients]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[in_Subject]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_Body">[BodyAsHtml]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_Attachments">[Attachments.ToArray]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_CC">[CC]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_BCC">[BCC]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
     </Sequence>
   </Sequence>
 </Activity>

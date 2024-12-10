@@ -135,7 +135,14 @@
         "testCaseId": "178291e4-3ae3-434c-96b3-06750fe6ba8a",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Reusables\\Email\\Metadata\\Metadata_Attachments_TestCase.xaml"
+        "fileName": "Tests\\Reusables\\Email\\Metadata\\Metadata_Attachments_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "bfdd021b-f769-4d91-a47b-ab497433c085",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Reusables\\Email\\Metadata\\SendEmail_TestCase.xaml"
       }
     ],
     "saveToCloud": false
