@@ -106,18 +106,6 @@
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "8dc64ce0-4a90-4d63-8482-45e388af2b26",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Reusables\\OrchApi\\OrchApi_GetToken_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "6329190b-b97f-4f02-b524-841daaec5fd6",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Reusables\\OrchApi\\OrchApi_GetToken_WithError_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
         "testCaseId": "9078fc7e-e7f7-459f-9784-ccb3c361ce19",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
@@ -143,6 +131,53 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Reusables\\Email\\Metadata\\SendEmail_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "e7585ef7-90c0-45a6-b12a-e8cc55175c6d",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Framework\\Porreta\\ShouldReleaseThisMachine\\ShouldReleaseThisMachine_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "6329190b-b97f-4f02-b524-841daaec5fd6",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Reusables\\OrchApi\\OrchApiHttps_GetToken_WithError_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "8dc64ce0-4a90-4d63-8482-45e388af2b26",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Reusables\\OrchApi\\OrchApiHttps_GetToken_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "956f6be1-81ec-4f18-96e8-9ba795f51c97",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Reusables\\OrchApi\\OrchApi_GetPendingJobs_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "6101299c-bfa6-4e6c-a71d-ba6b590c1fe5",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Reusables\\OrchApi\\OrchApiHttps_GetJobs_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "9b2cafd4-e049-4d88-92f9-4165912081c7",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Reusables\\OrchApi\\OrchApiHttps_GetJobs_AllJobs_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "67abe637-456b-4e59-b34c-af4a5ae90e8b",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Reusables\\OrchApi\\OrchApi_GetThisJob_TestCase.xaml"
       }
     ],
     "saveToCloud": false
