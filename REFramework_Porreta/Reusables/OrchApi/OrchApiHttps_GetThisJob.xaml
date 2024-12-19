@@ -114,13 +114,13 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1024.6666666666667,2133.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_17">
+  <Sequence sap:VirtualizedContainerService.HintSize="1024.6666666666667,1778.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Get this job" sap:VirtualizedContainerService.HintSize="560,2110.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence DisplayName="Get this job" sap:VirtualizedContainerService.HintSize="560,1756" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -128,8 +128,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Getting this job...&quot;]" />
       <ui:GetCurrentJobInfo DisplayName="Get Current Job Info" sap:VirtualizedContainerService.HintSize="526,57.333333333333336" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[out_Job]" />
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[out_Job]" />
-      <Sequence DisplayName="HTTPS Request" sap:VirtualizedContainerService.HintSize="526,1450" sap2010:WorkflowViewState.IdRef="Sequence_18">
+      <Sequence DisplayName="HTTPS Request" sap:VirtualizedContainerService.HintSize="526,1439.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="url" />
           <Variable x:TypeArguments="x:Int32" Name="responseStatus" />
@@ -149,13 +148,14 @@
             <InArgument x:TypeArguments="x:String">["/odata/jobs(" + out_Job.Key + ")"]</InArgument>
           </Assign.Value>
         </Assign>
-        <Sequence DisplayName="Make Http request" sap:VirtualizedContainerService.HintSize="492,705.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence sap2010:Annotation.AnnotationText="TODO&#xD;&#xA;Get the Jobs json and filter by process name to get the running process.&#xD;&#xA;Then get its id&#xD;&#xA;" DisplayName="Make Http request" sap:VirtualizedContainerService.HintSize="492,704" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:RetryScope ContinueOnError="{x:Null}" DisplayName="Retry Scope - HTTPS request" sap:VirtualizedContainerService.HintSize="458,613.3333333333334" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="{x:Null}">
+          <ui:RetryScope ContinueOnError="{x:Null}" DisplayName="Retry Scope - HTTPS request" sap:VirtualizedContainerService.HintSize="458,533.3333333333334" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="{x:Null}">
             <ui:RetryScope.ActivityBody>
               <ActivityAction>
                 <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,332" sap2010:WorkflowViewState.IdRef="Sequence_11">
@@ -273,7 +273,6 @@
           <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON - Https response" sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[Responsejson]" JsonString="[responseContent]" />
         </Sequence>
       </Sequence>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[out_JobJson]" />
     </Sequence>
   </Sequence>
 </Activity>
