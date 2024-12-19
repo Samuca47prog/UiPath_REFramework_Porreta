@@ -16,7 +16,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.1.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1-alpha",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -134,13 +134,6 @@
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "e7585ef7-90c0-45a6-b12a-e8cc55175c6d",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Framework\\Porreta\\ShouldReleaseThisMachine\\ShouldReleaseThisMachine_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
         "testCaseId": "6329190b-b97f-4f02-b524-841daaec5fd6",
         "testCaseType": "TestCase",
         "fileName": "Tests\\Reusables\\OrchApi\\OrchApiHttps_GetToken_WithError_TestCase.xaml"
@@ -150,13 +143,6 @@
         "testCaseId": "8dc64ce0-4a90-4d63-8482-45e388af2b26",
         "testCaseType": "TestCase",
         "fileName": "Tests\\Reusables\\OrchApi\\OrchApiHttps_GetToken_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "956f6be1-81ec-4f18-96e8-9ba795f51c97",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Reusables\\OrchApi\\OrchApi_GetPendingJobs_TestCase.xaml"
       },
       {
         "editingStatus": "InProgress",
@@ -174,10 +160,17 @@
       },
       {
         "editingStatus": "InProgress",
+        "testCaseId": "e7585ef7-90c0-45a6-b12a-e8cc55175c6d",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Porreta\\ShouldReleaseThisMachine_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
         "testCaseId": "67abe637-456b-4e59-b34c-af4a5ae90e8b",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Reusables\\OrchApi\\OrchApi_GetThisJob_TestCase.xaml"
+        "fileName": "Tests\\Reusables\\OrchApi\\OrchApiHttps_GetThisJob_TestCase.xaml"
       }
     ],
     "saveToCloud": false
@@ -187,6 +180,12 @@
     {
       "filePath": "Main.xaml",
       "uniqueId": "ffc42da2-d24b-4df0-9206-7b9c1cb22b9f",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Reusables\\OrchApi\\OrchApiHttps_GetThisJob.xaml",
+      "uniqueId": "4b4abc5a-8522-4108-9c57-6546cc503040",
       "input": [],
       "output": []
     }

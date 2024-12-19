@@ -47,6 +47,7 @@
       <x:String>UiPath.Web.Activities</x:String>
       <x:String>UiPath.Core.Activities.Orchestrator</x:String>
       <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Orchestrator.Client.Models</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -105,17 +106,23 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow analyses if there is another job with higher priority waiting to run in the same machine.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Get all pending jobs to run&#xD;&#xA;Get current job information&#xD;&#xA;in between the jobs pending at higher priority, is there any for the same machine or no specific machine?&#xD;&#xA;- if yes, Should Release This Machine = True; Create another job with same configuration &#xD;&#xA;- If not, just keep running" DisplayName="ShouldReleaseTheMachine" sap:VirtualizedContainerService.HintSize="1024.6666666666667,660" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow analyses if there is another job with higher priority waiting to run in the same machine.&#xD;&#xA;&#xD;&#xA;IMPORTANT: This is working only for current folder&#xD;&#xA;&#xD;&#xA;Get all pending jobs to run&#xD;&#xA;Get current job information&#xD;&#xA;in between the jobs pending at higher priority, is there any for the same machine or no specific machine?&#xD;&#xA;- if yes, Should Release This Machine = True; Create another job with same configuration &#xD;&#xA;- If not, just keep running" DisplayName="ShouldReleaseTheMachine" sap:VirtualizedContainerService.HintSize="1024.6666666666667,1677.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="njl:JToken" Name="JobsJson" />
+      <Variable x:TypeArguments="njl:JToken" Name="PendingJobsJson" />
       <Variable x:TypeArguments="s:String[]" Name="SelectProperties" />
       <Variable x:TypeArguments="x:String" Name="FilterProperties">
         <Variable.Default>
           <Literal x:TypeArguments="x:String">State eq 'Pending'</Literal>
         </Variable.Default>
       </Variable>
+      <Variable x:TypeArguments="njl:JToken" Name="currentJobJson" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -123,7 +130,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Assign - At start, Should not release this machine" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Assign - At start, Should not release this machine" sap:VirtualizedContainerService.HintSize="586,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">[out_ShouldReleaseThisMachine]</OutArgument>
       </Assign.To>
@@ -131,10 +138,10 @@
         <InArgument x:TypeArguments="x:Boolean">False</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Get Pending Jobs" DisplayName="OrchApiHttps_GetJobs - Invoke Workflow file - Get Pending Jobs" sap:VirtualizedContainerService.HintSize="434,240.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Reusables\OrchApi\OrchApiHttps_GetJobs.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Get Pending Jobs" DisplayName="OrchApiHttps_GetJobs - Invoke Workflow file - Get Pending Jobs" sap:VirtualizedContainerService.HintSize="586,240.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Reusables\OrchApi\OrchApiHttps_GetJobs.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorFolderName">[in_OrchestratorFolderName]</InArgument>
-        <OutArgument x:TypeArguments="njl:JToken" x:Key="out_JobsJson">[JobsJson]</OutArgument>
+        <OutArgument x:TypeArguments="njl:JToken" x:Key="out_JobsJson">[PendingJobsJson]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_ResponseContent" />
         <InArgument x:TypeArguments="s:String[]" x:Key="in_SelectProperties">[SelectProperties]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_FilterProperties">[FilterProperties]</InArgument>
@@ -145,12 +152,88 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="OrchApi_GetThisJob - Invoke Workflow File (Reusables\OrchApi\OrchApi_GetThisJob.xaml)" sap:VirtualizedContainerService.HintSize="434,200.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Reusables\OrchApi\OrchApi_GetThisJob.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="OrchApi_GetThisJob - Invoke Workflow File (Reusables\OrchApi\OrchApi_GetThisJob.xaml)" sap:VirtualizedContainerService.HintSize="586,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Reusables\OrchApi\OrchApiHttps_GetThisJob.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorFolderPath" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorFolderPath">[in_OrchestratorFolderName]</InArgument>
         <OutArgument x:TypeArguments="ui:CurrentJobInfo" x:Key="out_Job" />
-        <OutArgument x:TypeArguments="njl:JToken" x:Key="out_JobJson" />
+        <OutArgument x:TypeArguments="njl:JToken" x:Key="out_JobJson">[currentJobJson]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each currentPendingJob" sap:VirtualizedContainerService.HintSize="586,1008" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[PendingJobsJson]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="njl:JToken">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="njl:JToken" Name="currentPendingJob" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Pending Job" sap:VirtualizedContainerService.HintSize="552,869.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="hasHigherPriority" />
+              <Variable x:TypeArguments="x:Boolean" Name="useThisMachine" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign - Pending job Has Higher Priority" sap:VirtualizedContainerService.HintSize="518,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[hasHigherPriority]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">[Cint(currentJobJson("SpecificPriorityValue")) &lt; Cint(currentPendingJob("SpecificPriorityValue"))]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="Assign - Pending job Also use this machine" sap:VirtualizedContainerService.HintSize="518,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[useThisMachine]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">[currentPendingJob("HostMachineName").Equals(currentJobJson("HostMachineName"))]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If sap2010:Annotation.AnnotationText="If the pending job has more priority and could run in this machine" Condition="[hasHigherPriority AndAlso useThisMachine]" DisplayName="If - The pending Job should run in front of this one" sap:VirtualizedContainerService.HintSize="518,574.6666666666666" sap2010:WorkflowViewState.IdRef="If_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Then - " sap:VirtualizedContainerService.HintSize="484,290.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Create this job again" sap:VirtualizedContainerService.HintSize="450,122.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                  <Assign DisplayName="Assign -Should release this machine" sap:VirtualizedContainerService.HintSize="450,108" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[out_ShouldReleaseThisMachine]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else - Keep processing!" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
   </Sequence>
 </Activity>

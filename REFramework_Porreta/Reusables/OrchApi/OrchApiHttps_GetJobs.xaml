@@ -111,7 +111,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1024.6666666666667,1899.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
+  <Sequence sap:VirtualizedContainerService.HintSize="1024.6666666666667,1996" sap2010:WorkflowViewState.IdRef="Sequence_16">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="responseHeaders" />
     </Sequence.Variables>
@@ -120,7 +120,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="HTTPS Request - Get Pending Jobs" sap:VirtualizedContainerService.HintSize="526,1876.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="HTTPS Request - Get Pending Jobs" sap:VirtualizedContainerService.HintSize="526,1973.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="url" />
         <Variable x:TypeArguments="x:Int32" Name="responseStatus" />
@@ -131,6 +131,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="492,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Getting jobs via https...&quot;]" />
       <Sequence DisplayName="Mount Url" sap:VirtualizedContainerService.HintSize="492,436" sap2010:WorkflowViewState.IdRef="Sequence_18">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="SelectPropertiesUrlSegment" />
@@ -172,13 +173,13 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence DisplayName="Make Http request" sap:VirtualizedContainerService.HintSize="492,705.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_11">
+      <Sequence DisplayName="Make Http request" sap:VirtualizedContainerService.HintSize="492,625.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_11">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:RetryScope DisplayName="Retry Scope - Orchestrator HTTP Request - Get Pending Jobs" sap:VirtualizedContainerService.HintSize="458,613.3333333333334" sap2010:WorkflowViewState.IdRef="RetryScope_1">
+        <ui:RetryScope DisplayName="Retry Scope - Orchestrator HTTP Request - Get Pending Jobs" sap:VirtualizedContainerService.HintSize="458,533.3333333333334" sap2010:WorkflowViewState.IdRef="RetryScope_1">
           <ui:RetryScope.ActivityBody>
             <ActivityAction>
               <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,332" sap2010:WorkflowViewState.IdRef="Sequence_15">

@@ -1,0 +1,15 @@
+{
+  "Value": {
+    "Framework/Porreta/ShouldReleaseThisMachine.xaml": [
+      {
+        "IsEnabled": true,
+        "Annotation": "Find a way to restart this process",
+        "Id": "18eceab6-22cd-49b6-996b-924fe8461030",
+        "ActivityIdRef": "Sequence_20",
+        "ActivityId": "1.30",
+        "ActivityName": "Create this job again",
+        "IsTransient": false
+      }
+    ]
+  }
+}

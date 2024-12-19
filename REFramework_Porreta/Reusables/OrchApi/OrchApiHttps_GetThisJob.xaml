@@ -41,6 +41,7 @@
       <x:String>System.Security</x:String>
       <x:String>UiPath.Web.Activities</x:String>
       <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -113,20 +114,22 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1024.6666666666667,1523.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
+  <Sequence sap:VirtualizedContainerService.HintSize="1024.6666666666667,2133.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_17">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Get this job" sap:VirtualizedContainerService.HintSize="560,1500.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence DisplayName="Get this job" sap:VirtualizedContainerService.HintSize="560,2110.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Getting this job...&quot;]" />
       <ui:GetCurrentJobInfo DisplayName="Get Current Job Info" sap:VirtualizedContainerService.HintSize="526,57.333333333333336" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[out_Job]" />
-      <Sequence DisplayName="HTTPS Request" sap:VirtualizedContainerService.HintSize="526,1360.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_18">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[out_Job]" />
+      <Sequence DisplayName="HTTPS Request" sap:VirtualizedContainerService.HintSize="526,1450" sap2010:WorkflowViewState.IdRef="Sequence_18">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="url" />
           <Variable x:TypeArguments="x:Int32" Name="responseStatus" />
@@ -146,13 +149,13 @@
             <InArgument x:TypeArguments="x:String">["/odata/jobs(" + out_Job.Key + ")"]</InArgument>
           </Assign.Value>
         </Assign>
-        <Sequence DisplayName="Make Http request" sap:VirtualizedContainerService.HintSize="492,625.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Make Http request" sap:VirtualizedContainerService.HintSize="492,705.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:RetryScope ContinueOnError="{x:Null}" DisplayName="Retry Scope - HTTPS request" sap:VirtualizedContainerService.HintSize="458,533.3333333333334" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="{x:Null}">
+          <ui:RetryScope ContinueOnError="{x:Null}" DisplayName="Retry Scope - HTTPS request" sap:VirtualizedContainerService.HintSize="458,613.3333333333334" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="{x:Null}">
             <ui:RetryScope.ActivityBody>
               <ActivityAction>
                 <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,332" sap2010:WorkflowViewState.IdRef="Sequence_11">
@@ -164,7 +167,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:OrchestratorHttpRequest JSONPayload="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Orchestrator HTTP Request - Get this job" FolderPath="[in_OrchestratorFolderPath]" sap:VirtualizedContainerService.HintSize="382,272" sap2010:WorkflowViewState.IdRef="OrchestratorHttpRequest_1" Method="GET" RelativeEndpoint="[url]" />
+                  <ui:OrchestratorHttpRequest JSONPayload="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Orchestrator HTTP Request - Get this job" FolderPath="[in_OrchestratorFolderPath]" sap:VirtualizedContainerService.HintSize="382,272" sap2010:WorkflowViewState.IdRef="OrchestratorHttpRequest_1" Method="GET" RelativeEndpoint="[url]" ResponseHeaders="[responseHeaders]" Result="[responseContent]" StatusCode="[responseStatus]" />
                 </Sequence>
               </ActivityAction>
             </ui:RetryScope.ActivityBody>
@@ -190,44 +193,44 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence x:Key="200" DisplayName="Actions for code 200" sap:VirtualizedContainerService.HintSize="416,255.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence x:Key="200" DisplayName="Actions for code 200" sap:VirtualizedContainerService.HintSize="416,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;200 - OK: to &quot; + url + &quot; -- The request was successful, and the server returned the requested data.&quot;]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;200 - OK: to &quot; + url + &quot; -- The request was successful, and the server returned the requested data.&quot;]" />
             </Sequence>
-            <Sequence x:Key="201" DisplayName="Actions for code 201" sap:VirtualizedContainerService.HintSize="416,255.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence x:Key="201" DisplayName="Actions for code 201" sap:VirtualizedContainerService.HintSize="416,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;201 - Created: to &quot; + url + &quot; -- The request was successful, and a new resource was created as a result.&quot;]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;201 - Created: to &quot; + url + &quot; -- The request was successful, and a new resource was created as a result.&quot;]" />
             </Sequence>
             <x:Null x:Key="202" />
             <x:Null x:Key="204" />
             <x:Null x:Key="301" />
             <x:Null x:Key="302" />
             <x:Null x:Key="304" />
-            <Sequence x:Key="400" DisplayName="Actions for code 400" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence x:Key="400" DisplayName="Actions for code 400" sap:VirtualizedContainerService.HintSize="416,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;400 - Bad Request: to &quot; + url + &quot; -- The server could not understand the request due to invalid syntax.&quot;]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;400 - Bad Request: to &quot; + url + &quot; -- The server could not understand the request due to invalid syntax.&quot;]" />
             </Sequence>
             <x:Null x:Key="401" />
             <x:Null x:Key="403" />
-            <Sequence x:Key="404" DisplayName="Actions for code 404" sap:VirtualizedContainerService.HintSize="416,255.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence x:Key="404" DisplayName="Actions for code 404" sap:VirtualizedContainerService.HintSize="416,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;404 - Not Found: to &quot; + url + &quot; -- The server cannot find the requested resource.&quot;]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;404 - Not Found: to &quot; + url + &quot; -- The server cannot find the requested resource.&quot;]" />
             </Sequence>
             <x:Null x:Key="405" />
           </Switch>
@@ -240,13 +243,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,202.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_9">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Throw DisplayName="Throw - Response code returned error" Exception="[New SystemException(&quot;Response code returned error&quot; + &quot; - Status code &quot; + responseStatus.ToString + &quot; was returned. Response content was &quot; + responseContent)]" sap:VirtualizedContainerService.HintSize="354,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                <Throw DisplayName="Throw - Response code returned error" Exception="[New SystemException(&quot;Response code returned error&quot; + &quot; - Status code &quot; + responseStatus.ToString + &quot; was returned. Response content was &quot; + responseContent)]" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_3" />
               </Sequence>
             </If.Then>
             <If.Else>
@@ -270,6 +273,7 @@
           <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON - Https response" sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[Responsejson]" JsonString="[responseContent]" />
         </Sequence>
       </Sequence>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[out_JobJson]" />
     </Sequence>
   </Sequence>
 </Activity>
