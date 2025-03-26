@@ -1,6 +1,6 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Metadata_BuildBody" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property sap2010:Annotation.AnnotationText="Path for the baseline html file " Name="in_BodyHtmlFilePath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Path for the baseline html file." Name="in_BodyHtmlFilePath" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Body ready to be used as html content" Name="out_Body" Type="OutArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary of keys and values to be replaced in the Body html. &#xA;keys that appear as {{key}} in the html will be replaced by the value assigned in this dictionary." Name="in_TextReplacements" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary of images and its paths to be replaced in the Body html. &#xA;keys that appear as {{image}} in the html will be replaced by the value assigned in this dictionary." Name="in_ImageReplacements" Type="InArgument(scg:Dictionary(x:String, x:String))" />
@@ -114,7 +114,7 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="# Purpose&#xA;This workflow is responsible for preparing an HTML email body. It reads an HTML template file and performs dynamic replacements (text, images, tables) based on the provided input arguments.&#xA;&#xA;# Input Arguments&#xA;- in_BodyHtmlFilePath (InArgument&lt;String&gt;)&#xA;Path to the baseline HTML file that serves as a template.&#xA;&#xA;- in_TextReplacements (InArgument&lt;Dictionary&lt;String, String&gt;&gt;)&#xA; Dictionary of keys and values to replace placeholders in the HTML.&#xD;&#xA;&#xA;- in_ImageReplacements (InArgument&lt;Dictionary&lt;String, String&gt;&gt;)&#xA;Dictionary mapping keys to image file paths.&#xD;&#xA;&#xA;- in_TableReplacements (InArgument&lt;Dictionary&lt;String, DataTable&gt;&gt;)&#xA;Dictionary mapping keys to DataTable objects.&#xD;&#xA;&#xA;# Output Arguments&#xA;- out_Body (OutArgument&lt;String&gt;)&#xA;Final HTML content after performing all replacements.&#xA;&#xA;# Workflow Structure&#xA;The Build Body sequence constructs the final HTML email body by reading a template file and performing dynamic replacements for text, images, and tables, if provided. It iterates through the provided dictionaries to replace placeholders in the template with the corresponding values (e.g., text replacements, Base64-encoded image tags, or HTML tables). Key activities include conditional checks for replacements, iterative updates to the body content, and the dynamic generation of HTML elements.&#xA;&#xD;&#xA;&#xA;# Error Handling" DisplayName="Build Body" sap:VirtualizedContainerService.HintSize="750,3420.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_8">
+  <Sequence sap2010:Annotation.AnnotationText="# Purpose&#xA;This workflow is responsible for preparing an HTML email body. It reads an HTML template file and performs dynamic replacements (text, images, tables) based on the provided input arguments.&#xA;&#xA;# Input Arguments&#xA;- in_BodyHtmlFilePath (InArgument&lt;String&gt;)&#xA;Path to the baseline HTML file that serves as a template.&#xA;&#xA;- in_TextReplacements (InArgument&lt;Dictionary&lt;String, String&gt;&gt;)&#xA; Dictionary of keys and values to replace placeholders in the HTML.&#xA;&#xA;- in_ImageReplacements (InArgument&lt;Dictionary&lt;String, String&gt;&gt;)&#xA;Dictionary mapping keys to image file paths.&#xA;&#xA;- in_TableReplacements (InArgument&lt;Dictionary&lt;String, DataTable&gt;&gt;)&#xA;Dictionary mapping keys to DataTable objects.&#xA;&#xA;# Output Arguments&#xA;- out_Body (OutArgument&lt;String&gt;)&#xA;Final HTML content after performing all replacements.&#xA;&#xA;# Workflow Structure&#xA;The Build Body sequence constructs the final HTML email body by reading a template file and performing dynamic replacements for text, images, and tables, if provided. It iterates through the provided dictionaries to replace placeholders in the template with the corresponding values (e.g., text replacements, Base64-encoded image tags, or HTML tables). Key activities include conditional checks for replacements, iterative updates to the body content, and the dynamic generation of HTML elements.&#xA;&#xA;&#xA;# Error Handling" DisplayName="Build Body" sap:VirtualizedContainerService.HintSize="1417.3333333333333,2854.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_8">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -122,27 +122,27 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:ReadTextFile File="{x:Null}" Content="[out_Body]" DisplayName="Read Text File" FileName="[in_BodyHtmlFilePath]" sap:VirtualizedContainerService.HintSize="688,114" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <Sequence DisplayName="Texts Replacements" sap:VirtualizedContainerService.HintSize="688,730.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence DisplayName="Texts Replacements" sap:VirtualizedContainerService.HintSize="688,646.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[Not IsNothing(in_TextReplacements)]" DisplayName="If - Any replacement for Text was given" sap:VirtualizedContainerService.HintSize="626,610.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
+      <If Condition="[Not IsNothing(in_TextReplacements)]" DisplayName="If - Any replacement for Text was given" sap:VirtualizedContainerService.HintSize="570,554.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
         <If.Then>
-          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,422.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,366.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each Text Replacement" sap:VirtualizedContainerService.HintSize="530,334.6666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_TextReplacements]">
+            <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each Text Replacement" sap:VirtualizedContainerService.HintSize="502,306.6666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_TextReplacements]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, x:String)">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, x:String)" Name="currentIText" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,196" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

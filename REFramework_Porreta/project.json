@@ -44,7 +44,10 @@
     },
     "processOptions": {
       "ignoredFiles": [
-        "Reusables/Email/Metadata/Metadata_Replacements.xaml"
+        "Reusables/Email/Metadata/Metadata_Replacements.xaml",
+        "Framework/Porreta/ShouldReleaseThisMachine.xaml",
+        "Reusables/OrchApi/OrchApiHttps_RestartJob.xaml",
+        "Reusables/OrchApi/OrchApiHttps_GetThisJob.xaml"
       ]
     },
     "fileInfoCollection": [
@@ -127,13 +130,6 @@
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "bfdd021b-f769-4d91-a47b-ab497433c085",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Reusables\\Email\\Metadata\\SendEmail_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
         "testCaseId": "6329190b-b97f-4f02-b524-841daaec5fd6",
         "testCaseType": "TestCase",
         "fileName": "Tests\\Reusables\\OrchApi\\OrchApiHttps_GetToken_WithError_TestCase.xaml"
@@ -171,6 +167,13 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Reusables\\OrchApi\\OrchApiHttps_GetThisJob_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "bfdd021b-f769-4d91-a47b-ab497433c085",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Reusables\\Email\\SendEmail\\SendEmail_TestCase.xaml"
       }
     ],
     "saveToCloud": false
@@ -180,12 +183,6 @@
     {
       "filePath": "Main.xaml",
       "uniqueId": "ffc42da2-d24b-4df0-9206-7b9c1cb22b9f",
-      "input": [],
-      "output": []
-    },
-    {
-      "filePath": "Reusables\\OrchApi\\OrchApiHttps_GetThisJob.xaml",
-      "uniqueId": "4b4abc5a-8522-4108-9c57-6546cc503040",
       "input": [],
       "output": []
     }

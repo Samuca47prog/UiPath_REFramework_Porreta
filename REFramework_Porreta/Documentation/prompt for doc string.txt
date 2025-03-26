@@ -4,10 +4,10 @@ I want you to create a doc string for my workflow in UiPath Studio based in the 
 Use the following docstring structure:
 
 """
-# Purpose
+## Purpose
 This workflow is responsible for ...
 
-# Input Arguments
+## Input Arguments
 - in_arg1 (InArgument<String>)
 argument description
 
@@ -15,15 +15,15 @@ argument description
  argument 2 description 
 
 
-# Output Arguments
+## Output Arguments
 - out_arg1(OutArgument<String>)
 Final HTML content after performing all replacements.
 
-# Workflow Structure
+## Workflow Structure
 Use 2 to 3 sentences to describe how the workflow is implemented
 
 
-# Error Handling
+## Error Handling
 Describe throws used in the workflow
 """
 
