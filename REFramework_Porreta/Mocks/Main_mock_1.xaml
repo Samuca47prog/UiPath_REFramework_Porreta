@@ -46,6 +46,7 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Numerics</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
       <x:String>UiPath.Testing.Activities.Mocks</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
@@ -109,7 +110,7 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID1}" sap2010:Annotation.AnnotationText="[RE Framework Porreta]&#xA;[Enhenced REF]&#xA;[Samuel Simão, samuelsimao47@gmail.com]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1434.6666666666667,352.82399999999996" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID1}" sap2010:Annotation.AnnotationText="[RE Framework Porreta]&#xA;[Enhenced REF]&#xA;[Samuel Simão, samuelsimao47@gmail.com]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1434.6666666666667,234.82399999999998" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -478,9 +479,9 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.Condition>[SystemException IsNot Nothing]</Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="569.3333333333334,2142" sap2010:WorkflowViewState.IdRef="State_2">
+                    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Read configuration file and initialize applications used in the process." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="1048.6666666666667,3615.3333333333335" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
-                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="522.6666666666666,1682" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                        <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="1002,3155.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -488,16 +489,16 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="484,1419.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                            <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="963.3333333333334,2892.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_4">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <utam:MockActivity DisplayName="Mock Assign SystemException (initialization)" MockedActivityIdRef="Assign_5">
+                              <utam:MockActivity DisplayName="Mock Assign SystemException (initialization)" sap:VirtualizedContainerService.HintSize="929.3333333333334,281.3333333333333" sap2010:WorkflowViewState.IdRef="MockActivity_1" MockedActivityIdRef="Assign_5">
                                 <utam:MockActivity.MockedActivity>
-                                  <Assign DisplayName="Assign SystemException (initialization)" sap:VirtualizedContainerService.HintSize="450,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                  <Assign DisplayName="Assign SystemException (initialization)" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_35">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="s:Exception">[SystemException]</OutArgument>
                                     </Assign.To>
@@ -506,16 +507,16 @@
                                     </Assign.Value>
                                   </Assign>
                                 </utam:MockActivity.MockedActivity>
-                                <Sequence sap:VirtualizedContainerService.HintSize="416,174.66666666666666" sap2010:WorkflowViewState.IdRef="">
+                                <Sequence sap:VirtualizedContainerService.HintSize="416,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_44">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Throw DisplayName="Throw - Forced BRE in the initialization" Exception="[New BusinessRuleException(&quot;Forced BRE in the initialization&quot;)]" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                                  <Throw DisplayName="Throw - Forced SE in initialization" Exception="[New SystemException(&quot;Forced SE in initialization&quot;)]" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_3" />
                                 </Sequence>
                               </utam:MockActivity>
-                              <If sap2010:Annotation.AnnotationText="An uninitialized Config dictionary indicates that it is the first run of the process." Condition="[Config is Nothing]" DisplayName="If first run, read local configuration file" sap:VirtualizedContainerService.HintSize="450,333.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+                              <If sap2010:Annotation.AnnotationText="An uninitialized Config dictionary indicates that it is the first run of the process." Condition="[Config is Nothing]" DisplayName="If first run, read local configuration file" sap:VirtualizedContainerService.HintSize="929.3333333333334,1642.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -524,10 +525,10 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
-                                  <Sequence DisplayName="First run" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                  <Sequence DisplayName="First run" sap:VirtualizedContainerService.HintSize="416,1334.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
@@ -629,7 +630,7 @@
                                   </Sequence>
                                 </If.Else>
                               </If>
-                              <If sap2010:Annotation.AnnotationText="If MaxConsecutiveSystemExceptions number was reached, throw Exception at initialization and go to End Process state, thus finalizing the execution. &#xA;If MaxConsecutiveSystemExceptions is 0, then any number of consecutive System Exceptions is allowed." Condition="[Cint(Config(&quot;MaxConsecutiveSystemExceptions&quot;))&gt;0 AndAlso ConsecutiveSystemExceptions&gt;=Cint(Config(&quot;MaxConsecutiveSystemExceptions&quot;))]" DisplayName="If maxConsecutiveSystemExceptions exceeded" sap:VirtualizedContainerService.HintSize="450,269.3333333333333" sap2010:WorkflowViewState.IdRef="If_13">
+                              <If sap2010:Annotation.AnnotationText="If MaxConsecutiveSystemExceptions number was reached, throw Exception at initialization and go to End Process state, thus finalizing the execution. &#xA;If MaxConsecutiveSystemExceptions is 0, then any number of consecutive System Exceptions is allowed." Condition="[Cint(Config(&quot;MaxConsecutiveSystemExceptions&quot;))&gt;0 AndAlso ConsecutiveSystemExceptions&gt;=Cint(Config(&quot;MaxConsecutiveSystemExceptions&quot;))]" DisplayName="If maxConsecutiveSystemExceptions exceeded" sap:VirtualizedContainerService.HintSize="929.3333333333334,269.3333333333333" sap2010:WorkflowViewState.IdRef="If_13">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -650,7 +651,7 @@
                                   </Sequence>
                                 </If.Else>
                               </If>
-                              <If sap2010:Annotation.AnnotationText="If MaxSystemExceptionsAtInitialization number was reached, throw Exception at initialization and go to End Process state, thus finalizing the execution. " Condition="[SystemExceptionsAtInitCount &gt; Cint(Config(&quot;MaxSystemExceptionsAtInitialization&quot;))]" DisplayName="If MaxSystemExceptionsAtInitialization exceeded" sap:VirtualizedContainerService.HintSize="450,438.6666666666667" sap2010:WorkflowViewState.IdRef="If_15">
+                              <If sap2010:Annotation.AnnotationText="If MaxSystemExceptionsAtInitialization number was reached, throw Exception at initialization and go to End Process state, thus finalizing the execution. " Condition="[SystemExceptionsAtInitCount &gt; Cint(Config(&quot;MaxSystemExceptionsAtInitialization&quot;))]" DisplayName="If MaxSystemExceptionsAtInitialization exceeded" sap:VirtualizedContainerService.HintSize="929.3333333333334,438.6666666666667" sap2010:WorkflowViewState.IdRef="If_15">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -671,7 +672,7 @@
                                   </Sequence>
                                 </If.Else>
                               </If>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="450,200.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="929.3333333333334,200.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
@@ -679,7 +680,7 @@
                             </Sequence>
                           </TryCatch.Try>
                           <TryCatch.Catches>
-                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="488.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="968,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_3">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -713,7 +714,7 @@
                                 </Sequence>
                               </ActivityAction>
                             </Catch>
-                            <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="488.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_14">
+                            <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="968,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_14">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -776,9 +777,11 @@
                           <Transition.Action>
                             <ui:Comment DisplayName="Comment (default transition)" sap:VirtualizedContainerService.HintSize="334,76" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Default transition is picked up if there are no errors during initialization" />
                           </Transition.Action>
-                          <Transition.Condition>[SystemException is Nothing AndAlso BusinessException is Nothing]</Transition.Condition>
+                          <Transition.Condition>
+                            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException is Nothing AndAlso BusinessException is Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                          </Transition.Condition>
                         </Transition>
-                        <Transition DisplayName="Exception (failed initialization)" sap:VirtualizedContainerService.HintSize="526.6666666666666,782.6666666666666" sap2010:WorkflowViewState.IdRef="Transition_3">
+                        <Transition DisplayName="Exception (failed initialization)" sap:VirtualizedContainerService.HintSize="654,786" sap2010:WorkflowViewState.IdRef="Transition_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:PointCollection x:Key="ConnectorLocation">339,129.33333333333334 339,159.33333333333331 85.5,159.33333333333331 85.5,208</av:PointCollection>
@@ -871,7 +874,9 @@
                           <Transition.Action>
                             <ui:Comment DisplayName="Comment (exception transition)" sap:VirtualizedContainerService.HintSize="334,56.666666666666664" sap2010:WorkflowViewState.IdRef="Comment_2" Text="Exception transition goes to end process" />
                           </Transition.Action>
-                          <Transition.Condition>[SystemException isNot Nothing Or BusinessException isNot Nothing]</Transition.Condition>
+                          <Transition.Condition>
+                            <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="BusinessException IsNot Nothing Or &#xD;&#xA;(SystemException IsNot Nothing AndAlso SystemExceptionsAtInitCount &gt;= MaxSystemExceptionsAtInit)" />
+                          </Transition.Condition>
                         </Transition>
                         <Transition DisplayName="System exception (Retry)" sap:VirtualizedContainerService.HintSize="573.3333333333334,736.6666666666666" sap2010:WorkflowViewState.IdRef="Transition_9">
                           <sap:WorkflowViewStateService.ViewState>
@@ -902,11 +907,17 @@
                               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_40" Level="Warn" Message="[&quot;Retrying initialization. Attemp #&quot; + SystemExceptionsAtInitCount.ToString]" />
                             </Sequence>
                           </Transition.Action>
-                          <Transition.Condition>[SystemException isNot Nothing]</Transition.Condition>
+                          <Transition.Condition>
+                            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException isNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
+                          </Transition.Condition>
                         </Transition>
                       </State.Transitions>
                       <State.Variables>
-                        <Variable x:TypeArguments="x:Int32" Default="0" Name="SystemExceptionsAtInitCount" />
+                        <Variable x:TypeArguments="x:Int32" Name="MaxSystemExceptionsAtInit">
+                          <Variable.Default>
+                            <Literal x:TypeArguments="x:Int32" Value="2" />
+                          </Variable.Default>
+                        </Variable>
                       </State.Variables>
                     </State>
                   </Transition.To>
@@ -984,6 +995,7 @@
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Transaction ID used for information and logging purposes. Ideally, the ID should be unique for each transaction. " Name="TransactionID" />
       <Variable x:TypeArguments="sd:DataTable" sap2010:Annotation.AnnotationText="Used in case transactions are stored in a DataTable, for example, after being retrieved from a spreadsheet." Name="dt_TransactionData" />
       <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Used to control the number of consecutive system exceptions." Default="0" Name="ConsecutiveSystemExceptions" />
+      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Used to control the number of system exceptions retries in Initialization." Default="0" Name="SystemExceptionsAtInitCount" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>
