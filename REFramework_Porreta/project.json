@@ -188,13 +188,6 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Main_SEinInitialization_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "cfddab4c-3204-4c51-a20e-9e0968427e8d",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Main_BREinInitialization_TestCase.xaml"
       }
     ],
     "saveToCloud": false
