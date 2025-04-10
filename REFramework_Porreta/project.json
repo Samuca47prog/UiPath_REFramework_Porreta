@@ -177,17 +177,24 @@
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "3d9098fc-b9a5-45f4-a6a9-2c2f394aa534",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Main_BREinInitialization_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
         "testCaseId": "c2b87764-bbd5-4bc9-a7b8-c17c4fdf773a",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Main_SEinInitialization_TestCase.xaml"
+        "fileName": "Tests\\Main\\Main_SEinInitialization_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "3d9098fc-b9a5-45f4-a6a9-2c2f394aa534",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Main\\Main_BREinInitialization_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "5a1fa2db-86e8-47b3-b2d5-c0539eed5be5",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Main\\Main_BREInProcess_TestCase.xaml"
       }
     ],
     "saveToCloud": false

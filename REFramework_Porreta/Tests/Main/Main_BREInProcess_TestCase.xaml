@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main_SEinInitialization_TestCase" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Main_SEinInitialization_TestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main_BREInProcess_TestCase" this:Main_BREInProcess_TestCase.in_OrchestratorQueueName="TestQueue" this:Main_BREInProcess_TestCase.in_OrchestratorQueueFolder="Porreta" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_OrchestratorQueueName" Type="InArgument(x:String)" />
+    <x:Property Name="in_OrchestratorQueueFolder" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Main_BREInProcess_TestCase_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -26,6 +34,8 @@
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -56,20 +66,41 @@
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main_SEinInitialization_TestCase" sap:VirtualizedContainerService.HintSize="1417.3333333333333,551.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main_BREInProcess_TestCase" sap:VirtualizedContainerService.HintSize="1084.6666666666667,741.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="450,122.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="450,312.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item - Exception BRE" FolderPath="[in_OrchestratorQueueFolder]" sap:VirtualizedContainerService.HintSize="416,220.66666666666666" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_OrchestratorQueueName]">
+        <ui:AddQueueItem.ItemInformation>
+          <InArgument x:TypeArguments="x:String" x:Key="Exception">BRE</InArgument>
+        </ui:AddQueueItem.ItemInformation>
+      </ui:AddQueueItem>
     </Sequence>
     <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="450,292.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
@@ -77,10 +108,10 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Main_mock - Invoke Workflow File (Mocks\Main_mock.xaml)" sap:VirtualizedContainerService.HintSize="416,200.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Mocks\Main_mock.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Main - Invoke Workflow File (Main.xaml)" sap:VirtualizedContainerService.HintSize="416,200.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Main.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueName" />
-          <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueFolder">SE</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueName">[in_OrchestratorQueueName]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueFolder">[in_OrchestratorQueueFolder]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
