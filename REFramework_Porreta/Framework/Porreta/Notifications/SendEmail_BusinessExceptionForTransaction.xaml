@@ -119,7 +119,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[Not Cbool(in_Config(&quot;BRE_Notification_Enabled&quot;))]" DisplayName="If - Check business exception notification toggle" sap:VirtualizedContainerService.HintSize="514.6666666666666,305.3333333333333" sap2010:WorkflowViewState.IdRef="If_16">
+      <If Condition="[Not Cbool(in_Config(&quot;BRE_Notification_Toggle&quot;))]" DisplayName="If - Check business exception notification toggle" sap:VirtualizedContainerService.HintSize="514.6666666666666,305.3333333333333" sap2010:WorkflowViewState.IdRef="If_16">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -153,7 +153,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Instantiate&#xD;&#xA;2. Recipient_Name - Default is first user of the first email of recipients" DisplayName="Multiple Assign - Text Replacements - Details - for Business Exception in Process" sap:VirtualizedContainerService.HintSize="480.6666666666667,225.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Instantiate&#xA;2. Recipient_Name - Default is first user of the first email of recipients" DisplayName="Multiple Assign - Text Replacements - Details - for Business Exception in Process" sap:VirtualizedContainerService.HintSize="480.6666666666667,225.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
           <ui:MultipleAssign.AssignOperations>
             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -180,7 +180,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:MultipleAssign>
-        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Exception_Message &#xD;&#xA;2. Exception_Source &#xD;&#xA;3. Exception_StackTrace " DisplayName="Multiple Assign - Text Replacements - Exception details - for Business Exception in Process" sap:VirtualizedContainerService.HintSize="480.6666666666667,272.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Exception_Message &#xA;2. Exception_Source &#xA;3. Exception_StackTrace " DisplayName="Multiple Assign - Text Replacements - Exception details - for Business Exception in Process" sap:VirtualizedContainerService.HintSize="480.6666666666667,272.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
           <ui:MultipleAssign.AssignOperations>
             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -215,7 +215,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:MultipleAssign>
-        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Transaction_Reference &#xD;&#xA;2. Start_DateTime &#xD;&#xA;3. Specific_Content - Dictionary formated to string key: value" DisplayName="Multiple Assign - Text Replacements - Transaction details - for Business Exception in Process" sap:VirtualizedContainerService.HintSize="480.6666666666667,263.3333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Transaction_Reference &#xA;2. Start_DateTime &#xA;3. Specific_Content - Dictionary formated to string key: value" DisplayName="Multiple Assign - Text Replacements - Transaction details - for Business Exception in Process" sap:VirtualizedContainerService.HintSize="480.6666666666667,263.3333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
           <ui:MultipleAssign.AssignOperations>
             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -228,7 +228,7 @@
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
                 <ui:AssignOperation.To>
-                  <OutArgument x:TypeArguments="x:String">[BRE_TextReplacements("Start_DateTime")]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[BRE_TextReplacements("Start_Datetime")]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
                   <InArgument x:TypeArguments="x:String">[in_TransactionItem.StartTransactionTime.ToString]</InArgument>
@@ -261,7 +261,7 @@
           <InArgument x:TypeArguments="s:String[]" x:Key="in_Recipients">[Split(in_Config("BRE_Notification_Recipients").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
           <InArgument x:TypeArguments="s:String[]" x:Key="in_CC">[Split(in_Config("BRE_Notification_CC").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
           <InArgument x:TypeArguments="s:String[]" x:Key="in_BCC">[Split(in_Config("BRE_Notification_BCC").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
-          <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentsFolders">[Split(in_Config("BRE_Notification_AttachmentsFolder").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentsFolders">[Split(in_Config("BRE_Notification_AttachmentFolders").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
           <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentsFiles">[Split(in_Config("BRE_Notification_AttachmentFiles").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_TextReplacements">[BRE_TextReplacements]</InArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_ImageReplacements" />

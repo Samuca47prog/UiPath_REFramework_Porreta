@@ -4,7 +4,7 @@
   "description": "Robotic Enterprise Framework Porreta",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.23.4]",
+    "UiPath.Excel.Activities": "[2.24.4]",
     "UiPath.Mail.Activities": "[1.15.2]",
     "UiPath.MicrosoftOffice365.Activities": "[2.8.11-preview]",
     "UiPath.System.Activities": "[24.10.3]",
@@ -195,6 +195,13 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Main\\Main_BREInProcess_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "c90179ce-73ad-4719-b7f3-d6217e3c9286",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Porreta\\Notifications\\SendEmail_BusinessExceptionForTransaction_TestCase.xaml"
       }
     ],
     "saveToCloud": false
