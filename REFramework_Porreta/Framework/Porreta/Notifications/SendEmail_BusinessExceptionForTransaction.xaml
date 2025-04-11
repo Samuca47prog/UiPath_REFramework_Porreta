@@ -1,8 +1,8 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="SendEmail_BusinessExceptionForTransaction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_BusinessException" Type="InArgument(ui:BusinessRuleException)" />
-    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Business Rule Exception that originated the error." Name="in_BusinessException" Type="InArgument(ui:BusinessRuleException)" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -103,13 +103,13 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1084.6666666666667,1495.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_50">
+  <Sequence sap:VirtualizedContainerService.HintSize="1084.6666666666667,1078" sap2010:WorkflowViewState.IdRef="Sequence_50">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Email of Business Exception failure" DisplayName="Send Email - Business Exception for transaction" sap:VirtualizedContainerService.HintSize="548.6666666666666,1472.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_35">
+    <Sequence sap2010:Annotation.AnnotationText="&#xD;&#xA;# SendEmail_BusinessExceptionForTransaction.xaml&#xD;&#xA;&#xD;&#xA;## Purpose&#xD;&#xA;This workflow is responsible for preparing and sending a notification email when a Business Rule Exception occurs during the processing of a transaction item.&#xD;&#xA;&#xD;&#xA;## Input Arguments&#xD;&#xA;- in_Config (InArgument&lt;Dictionary&lt;String, Object&gt;&gt;)&#xD;&#xA;Dictionary structure to store configuration data of the process, including settings, constants, and asset values used during the email notification setup.&#xD;&#xA;&#xD;&#xA;- in_BusinessException (InArgument&lt;BusinessRuleException&gt;)&#xD;&#xA;The Business Rule Exception that triggered the error handling process.&#xD;&#xA;&#xD;&#xA;- in_TransactionItem (InArgument&lt;QueueItem&gt;)&#xD;&#xA;The transaction item being processed at the time the Business Rule Exception was thrown.&#xD;&#xA;&#xD;&#xA;## Output Arguments&#xD;&#xA;(None)&#xD;&#xA;&#xD;&#xA;## Workflow Structure&#xD;&#xA;The workflow begins by checking a configuration toggle that enables or disables the sending of business exception notifications. If enabled, it builds a dictionary of text replacements using the exception and transaction data, then invokes a reusable email-sending workflow with the prepared arguments.&#xD;&#xA;&#xD;&#xA;## Error Handling&#xD;&#xA;This workflow does not explicitly throw new exceptions. It assumes the exception has already occurred and is being handled. The process includes a `Return` activity that safely exits early if the notification toggle is disabled.&#xD;&#xA;&#xD;&#xA;" DisplayName="Send Email - Business Exception for transaction" sap:VirtualizedContainerService.HintSize="484,1055.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_35">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="BRE_TextReplacements" />
       </Sequence.Variables>
@@ -119,11 +119,12 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[Not Cbool(in_Config(&quot;BRE_Notification_Toggle&quot;))]" DisplayName="If - Check business exception notification toggle" sap:VirtualizedContainerService.HintSize="514.6666666666666,305.3333333333333" sap2010:WorkflowViewState.IdRef="If_16">
+      <If sap2010:Annotation.AnnotationText="Checks config key 'BRE_Notification_Toggle', which enables the notification if set to True" Condition="[Not Cbool(in_Config(&quot;BRE_Notification_Toggle&quot;))]" DisplayName="If - Check business exception notification toggle" sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="If_16">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
@@ -147,10 +148,11 @@
           </Sequence>
         </If.Else>
       </If>
-      <Sequence DisplayName="Text Replacements" sap:VirtualizedContainerService.HintSize="514.6666666666666,853.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_51">
+      <Sequence DisplayName="Text Replacements" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="Sequence_51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Instantiate&#xA;2. Recipient_Name - Default is first user of the first email of recipients" DisplayName="Multiple Assign - Text Replacements - Details - for Business Exception in Process" sap:VirtualizedContainerService.HintSize="480.6666666666667,225.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
@@ -254,7 +256,7 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:MultipleAssign>
       </Sequence>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail - Invoke Workflow File (Reusables\Email\SendEmail\SendEmail.xaml)" sap:VirtualizedContainerService.HintSize="514.6666666666666,200.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Reusables\Email\SendEmail\SendEmail.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail - Invoke Workflow File (Reusables\Email\SendEmail\SendEmail.xaml)" sap:VirtualizedContainerService.HintSize="450,200.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Reusables\Email\SendEmail\SendEmail.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="in_BodyHtmlFilePath">[in_Config("BRE_Notification_BodyHtmlFilePath").ToString]</InArgument>
           <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[in_Config("BRE_Notification_Subject").ToString]</InArgument>
