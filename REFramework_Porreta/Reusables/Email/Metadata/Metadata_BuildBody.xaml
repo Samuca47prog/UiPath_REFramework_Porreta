@@ -39,6 +39,7 @@
       <x:String>UiPath.Mail.Activities.Business.HtmlEditor</x:String>
       <x:String>UiPath.Mail.Activities.Business</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -112,9 +113,10 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="# Purpose&#xA;This workflow is responsible for preparing an HTML email body. It reads an HTML template file and performs dynamic replacements (text, images, tables) based on the provided input arguments.&#xA;&#xA;# Input Arguments&#xA;- in_BodyHtmlFilePath (InArgument&lt;String&gt;)&#xA;Path to the baseline HTML file that serves as a template.&#xA;&#xA;- in_TextReplacements (InArgument&lt;Dictionary&lt;String, String&gt;&gt;)&#xA; Dictionary of keys and values to replace placeholders in the HTML.&#xA;&#xA;- in_ImageReplacements (InArgument&lt;Dictionary&lt;String, String&gt;&gt;)&#xA;Dictionary mapping keys to image file paths.&#xA;&#xA;- in_TableReplacements (InArgument&lt;Dictionary&lt;String, DataTable&gt;&gt;)&#xA;Dictionary mapping keys to DataTable objects.&#xA;&#xA;# Output Arguments&#xA;- out_Body (OutArgument&lt;String&gt;)&#xA;Final HTML content after performing all replacements.&#xA;&#xA;# Workflow Structure&#xA;The Build Body sequence constructs the final HTML email body by reading a template file and performing dynamic replacements for text, images, and tables, if provided. It iterates through the provided dictionaries to replace placeholders in the template with the corresponding values (e.g., text replacements, Base64-encoded image tags, or HTML tables). Key activities include conditional checks for replacements, iterative updates to the body content, and the dynamic generation of HTML elements.&#xA;&#xA;&#xA;# Error Handling" DisplayName="Build Body" sap:VirtualizedContainerService.HintSize="1417.3333333333333,2854.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_8">
+  <Sequence sap2010:Annotation.AnnotationText="# Purpose&#xA;This workflow is responsible for preparing an HTML email body. It reads an HTML template file and performs dynamic replacements (text, images, tables) based on the provided input arguments.&#xA;&#xA;# Input Arguments&#xA;- in_BodyHtmlFilePath (InArgument&lt;String&gt;)&#xA;Path to the baseline HTML file that serves as a template.&#xA;&#xA;- in_TextReplacements (InArgument&lt;Dictionary&lt;String, String&gt;&gt;)&#xA; Dictionary of keys and values to replace placeholders in the HTML.&#xA;&#xA;- in_ImageReplacements (InArgument&lt;Dictionary&lt;String, String&gt;&gt;)&#xA;Dictionary mapping keys to image file paths.&#xA;&#xA;- in_TableReplacements (InArgument&lt;Dictionary&lt;String, DataTable&gt;&gt;)&#xA;Dictionary mapping keys to DataTable objects.&#xA;&#xA;# Output Arguments&#xA;- out_Body (OutArgument&lt;String&gt;)&#xA;Final HTML content after performing all replacements.&#xA;&#xA;# Workflow Structure&#xA;The Build Body sequence constructs the final HTML email body by reading a template file and performing dynamic replacements for text, images, and tables, if provided. It iterates through the provided dictionaries to replace placeholders in the template with the corresponding values (e.g., text replacements, Base64-encoded image tags, or HTML tables). Key activities include conditional checks for replacements, iterative updates to the body content, and the dynamic generation of HTML elements.&#xA;&#xA;&#xA;# Error Handling" DisplayName="Build Body" sap:VirtualizedContainerService.HintSize="981.9999999999999,3278.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_8">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -122,13 +124,64 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:ReadTextFile File="{x:Null}" Content="[out_Body]" DisplayName="Read Text File" FileName="[in_BodyHtmlFilePath]" sap:VirtualizedContainerService.HintSize="688,114" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <Sequence DisplayName="Texts Replacements" sap:VirtualizedContainerService.HintSize="688,646.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence sap2010:Annotation.AnnotationText="# Workaround for External CSS in Email Templates&#xD;&#xA;&#xD;&#xA;## Purpose&#xD;&#xA;&#xD;&#xA;Most email clients (like Gmail, Outlook, etc.) do not support external CSS via `&lt;link rel=&quot;stylesheet&quot; href=&quot;...&quot;&gt;` for security reasons. To overcome this limitation, we implement a dynamic solution that **inlines the contents of an external `.css` file** into the `&lt;style&gt;` tag of the HTML template **at runtime**.&#xD;&#xA;&#xD;&#xA;## How It Works&#xD;&#xA;&#xD;&#xA;Each HTML email template includes a comment inside its `&lt;style&gt;` tag that indicates the path to the associated external CSS file. During execution, the following steps occur:" DisplayName="replace styles section" sap:VirtualizedContainerService.HintSize="688,364.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_20">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="styleTag" />
+        <Variable x:TypeArguments="x:String" Name="styleSheetPath" />
+        <Variable x:TypeArguments="x:String" Name="stylesCss" />
+        <Variable x:TypeArguments="x:String" Name="styleSheetComment" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:Matches sap2010:Annotation.AnnotationText="Get the style tag in the whole html template" BuilderPattern="&lt;style[^&gt;]*&gt;([\s\S]*?)&lt;\/style&gt;" DisplayName="Find Matching Patterns - Get style tag" FirstMatch="[styleTag]" sap:VirtualizedContainerService.HintSize="434,122.66666666666667" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[out_Body]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;&lt;style[^&gt;]*&gt;([\\s\\S]*?)&lt;\\\/style&gt;&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="&lt;style[^&gt;]*&gt;([\s\S]*?)&lt;\/style&gt;" RegexOption="IgnoreCase, Multiline, Compiled">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:Matches>
+      <ui:Matches sap2010:Annotation.AnnotationText="return only the /**/ comment inside it" BuilderPattern="\/\*([\s\S]*?)\*\/" DisplayName="Find Matching Patterns - Get style sheet name inside /**/" FirstMatch="[styleSheetComment]" sap:VirtualizedContainerService.HintSize="434,122.66666666666667" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[styleTag]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\\/\\*([\\s\\S]*?)\\*\\\/&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\/\*([\s\S]*?)\*\/" RegexOption="IgnoreCase, Multiline, Compiled">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:Matches>
+      <Assign sap2010:Annotation.AnnotationText="Remove /**/ from style sheet path" DisplayName="Assign - Remove /**/ from style sheet path" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[styleSheetPath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[styleSheetComment.Replace("/*","").Replace("*/", "")]</InArgument>
+        </Assign.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Assign>
+      <ui:ReadTextFile File="{x:Null}" Content="[stylesCss]" DisplayName="Read Text File - styles sheet" FileName="[styleSheetPath]" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+      <Assign DisplayName="Assign - Replace style CSS with styles sheet css" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_Body]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[out_Body.Replace(styleSheetComment, stylesCss)]</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
+    <Sequence DisplayName="Texts Replacements" sap:VirtualizedContainerService.HintSize="688,706" sap2010:WorkflowViewState.IdRef="Sequence_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[Not IsNothing(in_TextReplacements)]" DisplayName="If - Any replacement for Text was given" sap:VirtualizedContainerService.HintSize="570,554.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
+      <If Condition="[Not IsNothing(in_TextReplacements)]" DisplayName="If - Any replacement for Text was given" sap:VirtualizedContainerService.HintSize="570,614" sap2010:WorkflowViewState.IdRef="If_1">
         <If.Then>
           <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,366.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
@@ -169,7 +222,7 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
