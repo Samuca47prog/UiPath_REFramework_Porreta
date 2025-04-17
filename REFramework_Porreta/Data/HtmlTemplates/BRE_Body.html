@@ -80,19 +80,22 @@
         <div class="email-body">
             <p>Dear {{Recipient_Name}},</p>
             <p>We would like to inform you that a <strong>business exception</strong> occurred during the execution of the automation process.</p>
-            
+            <br>
             <p><strong>Exception Details:</strong></p>
-                <p>Exception message:</p> 
+            <ul style="margin: 0 0 15px 20px; padding: 0;">
+                <li>
+                    <p><strong>Exception message:</strong></p>
                     <p>{{Exception_Message}}</p>
-
+                </li>
+            </ul>
+            <br>
             <p>Please review the information below to understand what happened and take any necessary action.</p>
-
+            <br>
             <p><strong>Additional Information:</strong></p>
             {{Wally_robot_image}}
-
+            <br>
             <details>
                 <summary>Developer Details</summary>
-            
                 <h4 style="margin-top: 15px; font-family: Arial, sans-serif; color: #333;">Transaction Information</h4>
                 <div style="font-family: monospace; background-color: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 4px; margin-top: 5px;">
                     <p><strong>Reference:</strong> {{Transaction_Reference}}</p>
@@ -100,7 +103,6 @@
                     <p><strong>Specific Content:</strong></p>
                     <pre style="white-space: pre-wrap;">{{Specific_Content}}</pre>
                 </div>
-            
                 <h4 style="margin-top: 20px; font-family: Arial, sans-serif; color: #333;">Exception Details</h4>
                 <div style="font-family: monospace; background-color: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 4px; margin-top: 5px;">
                     <p><strong>Message:</strong> {{Exception_Message}}</p>
@@ -109,7 +111,7 @@
                     <pre style="white-space: pre-wrap;">{{Exception_StackTrace}}</pre>
                 </div>
             </details>
-
+            <br>
             <p>If you have any questions or need assistance, please contact the support team.</p>
             <p>Best regards,</p>
             <p>Automation Team</p>
