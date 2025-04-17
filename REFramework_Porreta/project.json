@@ -202,6 +202,13 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Porreta\\Notifications\\SendEmail_BusinessExceptionForTransaction_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "75501317-2426-45c8-994e-41fe92e44ad5",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Main\\Main_SEinProcess_TestCase.xaml"
       }
     ],
     "saveToCloud": false
