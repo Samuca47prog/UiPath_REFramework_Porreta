@@ -1,8 +1,8 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SendEmail_BusinessExceptionForTransaction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SendEmail_BusinessExceptionForTransaction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property sap2010:Annotation.AnnotationText="Business Rule Exception that originated the error." Name="in_BusinessException" Type="InArgument(ui:BusinessRuleException)" />
     <x:Property sap2010:Annotation.AnnotationText="Transaction item processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_ConfigJson" Type="InArgument(njl:JObject)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -33,6 +33,11 @@
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Linq.Expressions</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -101,9 +106,12 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="981.9999999999999,1156.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_50">
+  <Sequence sap:VirtualizedContainerService.HintSize="932.6666666666666,1156.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_50">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -119,7 +127,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If sap2010:Annotation.AnnotationText="Checks config key 'BRE_Notification_Toggle', which enables the notification if set to True" Condition="[Not Cbool(in_Config(&quot;BRE_Notification_Toggle&quot;))]" DisplayName="If - Check business exception notification toggle" sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="If_16">
+      <If sap2010:Annotation.AnnotationText="Checks config key 'BRE_Notification_Toggle', which enables the notification if set to True" Condition="[Not Cbool(in_ConfigJson(&quot;BRE_Notification_Toggle&quot;))]" DisplayName="If - Check business exception notification toggle" sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="If_16">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -171,7 +179,7 @@
                   <OutArgument x:TypeArguments="x:String">[BRE_TextReplacements("Recipient_Name")]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[in_Config("BRE_Notification_Recipients").ToString.Split("@"c).first]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[in_ConfigJson("BRE_Notification_Recipients").ToString.Split("@"c).first]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
             </scg:List>
@@ -256,15 +264,15 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:MultipleAssign>
       </Sequence>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Dev Note&#xD;&#xA;&#xD;&#xA;Image and Table replacements are not yet implemented!" DisplayName="SendEmail - Invoke Workflow File (Reusables\Email\SendEmail\SendEmail.xaml)" sap:VirtualizedContainerService.HintSize="450,279.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Reusables\Email\SendEmail\SendEmail.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Dev Note&#xA;&#xA;Image and Table replacements are not yet implemented!" DisplayName="SendEmail - Invoke Workflow File (Reusables\Email\SendEmail\SendEmail.xaml)" sap:VirtualizedContainerService.HintSize="450,279.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Reusables\Email\SendEmail\SendEmail.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="in_BodyHtmlFilePath">[in_Config("BRE_Notification_BodyHtmlFilePath").ToString]</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[in_Config("BRE_Notification_Subject").ToString]</InArgument>
-          <InArgument x:TypeArguments="s:String[]" x:Key="in_Recipients">[Split(in_Config("BRE_Notification_Recipients").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
-          <InArgument x:TypeArguments="s:String[]" x:Key="in_CC">[Split(in_Config("BRE_Notification_CC").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
-          <InArgument x:TypeArguments="s:String[]" x:Key="in_BCC">[Split(in_Config("BRE_Notification_BCC").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
-          <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentsFolders">[Split(in_Config("BRE_Notification_AttachmentFolders").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
-          <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentsFiles">[Split(in_Config("BRE_Notification_AttachmentFiles").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_BodyHtmlFilePath">[in_ConfigJson("BRE_Notification_BodyHtmlFilePath").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[in_ConfigJson("BRE_Notification_Subject").ToString]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_Recipients">[Split(in_ConfigJson("BRE_Notification_Recipients").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_CC">[Split(in_ConfigJson("BRE_Notification_CC").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_BCC">[Split(in_ConfigJson("BRE_Notification_BCC").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentsFolders">[Split(in_ConfigJson("BRE_Notification_AttachmentFolders").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentsFiles">[Split(in_ConfigJson("BRE_Notification_AttachmentFiles").ToString).Select(Function(email) email.Trim).ToArray]</InArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_TextReplacements">[BRE_TextReplacements]</InArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_ImageReplacements" />
           <InArgument x:TypeArguments="scg:Dictionary(x:String, sd:DataTable)" x:Key="in_TableReplacements" />
