@@ -133,7 +133,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <StateMachine InitialState="{x:Reference __ReferenceID1}" sap2010:Annotation.AnnotationText="[RE Framework Porreta]&#xA;[Enhenced REF]&#xA;[Samuel Simão, samuelsimao47@gmail.com]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="950,775.3733333333332" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID1}" sap2010:Annotation.AnnotationText="[RE Framework Porreta]&#xA;[Enhenced REF]&#xA;[Samuel Simão, samuelsimao47@gmail.com]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="950,512.04" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -899,7 +899,7 @@
                                   <InArgument x:TypeArguments="x:Int32">[SystemExceptionsAtInitCount + 1]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_40" Level="Error" Message="[&quot;Retrying initialization. Attemp #&quot; + SystemExceptionsAtInitCount.ToString]" />
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_40" Level="Warn" Message="[&quot;Retrying initialization. Attemp #&quot; + SystemExceptionsAtInitCount.ToString]" />
                               <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452.6666666666667,394" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,291.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_48">
@@ -968,7 +968,7 @@
                   </Transition.Action>
                   <Transition.Condition>[BusinessException IsNot Nothing]</Transition.Condition>
                 </Transition>
-                <Transition sap2010:Annotation.AnnotationText="There is no need for any action in case of successful transaction.&#xA;The process should simply go to next transaction." DisplayName="Success" sap:VirtualizedContainerService.HintSize="452,553.6" sap2010:WorkflowViewState.IdRef="Transition_5">
+                <Transition sap2010:Annotation.AnnotationText="There is no need for any action in case of successful transaction.&#xA;The process should simply go to next transaction." DisplayName="Success" sap:VirtualizedContainerService.HintSize="496,547.3333333333334" sap2010:WorkflowViewState.IdRef="Transition_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:PointCollection x:Key="ConnectorLocation">391.33333333333303,651.3333333333337 391.33333333333303,679.7999999999997 483.66666666666634,679.7999999999997 483.66666666666634,289.79999999999967 453.66666666666634,289.79999999999967</av:PointCollection>
