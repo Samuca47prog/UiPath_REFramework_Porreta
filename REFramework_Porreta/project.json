@@ -209,6 +209,19 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Main\\Main_SEinProcess_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "8d64ef59-7d39-42b4-ba38-51da2207170f",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\InitAllSettingsJson_LocalFile_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "1eeb17b7-6a82-4a3a-8b83-b2645ee0a583",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\InitAllSettingsJson_Asset_TestCase.xaml"
       }
     ],
     "saveToCloud": false
