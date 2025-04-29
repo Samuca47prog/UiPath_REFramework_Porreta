@@ -187,9 +187,10 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <If sap2010:Annotation.AnnotationText="Update Local Config is enabled and Config Json Asset name was given" Condition="[CBool(out_ConfigJson(&quot;UpdateLocalConfig&quot;)) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(in_ConfigJsonAssetName)]" DisplayName="If - Update Local Config is enabled and Config Json Asset name was given" sap:VirtualizedContainerService.HintSize="450,503.3333333333333" sap2010:WorkflowViewState.IdRef="If_3">
+        <If sap2010:Annotation.AnnotationText="Update Local Config is enabled and Config Json Asset name was given" Condition="[CBool(out_ConfigJson(&quot;FlowControl&quot;)(&quot;UpdateLocalConfig&quot;)) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(in_ConfigJsonAssetName)]" DisplayName="If - Update Local Config is enabled and Config Json Asset name was given" sap:VirtualizedContainerService.HintSize="450,503.3333333333333" sap2010:WorkflowViewState.IdRef="If_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>

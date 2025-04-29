@@ -1,15 +1,63 @@
 { /*Settings*/
-    "OrchestratorQueueName": "ProcessABCQueue", /* Orchestrator queue Name. The value must match with the queue name defined on Orchestrator. */
-    "OrchestratorQueueFolder": null, /* Folder name. The value must match a folder defined in Orchestrator and queue specified as OrchestratorQueueName should be created in this folder. For classic folders leave the value field empty. */
-    "UpdateLocalConfig": true, /* If true, gets the asset value and save to the local config json */
-    "logF_BusinessProcessName": "Framework", /* Logging field which allows grouping of log data of two or more subprocesses under the same business process name */
+    "Orchestrator": {
+        "QueueName": "Tests", /* Orchestrator queue Name. The value must match with the queue name defined on Orchestrator. */
+        "QueueFolder": "Porreta" /* Folder name. The value must match a folder defined in Orchestrator and queue specified as OrchestratorQueueName should be created in this folder. For classic folders leave the value field empty. */
+    },
+    "LogF": {
+        "BusinessProcessName": "Framework" /* Logging field which allows grouping of log data of two or more subprocesses under the same business process name */
+    },
+    "FlowControl":{
+        "UpdateLocalConfig": false, /* If true, gets the asset value and save to the local config json */
+        "ShouldMarkJobAsFaulted": false /* Must be TRUE or FALSE. If the value is TRUE and an error occurs in Initialization state or the MaxConsecutiveSystemExceptions is reached, the job is marked as Faulted. */
+    },
+    "Path":{
+        "ScreenshotsFolder": "Exceptions_Screenshots" /*Where to save exceptions screenshots - can be a full or a relative path.*/
+    },
     "ProcessToKill": "notepad.exe", /* Define process to be killed in KillAllProcesses.xaml if in_ProcessToKill is null */
-    "Email": null,
-    "BRE in process": null, 
+
+    "Email": {
+        "BRE": {
+            "Toggle": "True", /* Boolean that toggles if a business exception in the process will trigger business exception */
+            "BodyHtmlFilePath": "Data\\HtmlTemplates\\BRE_Body.html", /* File path for the html file used as body in case of a business exception */
+            "Subject": "Business exception happened", /* Subject used in case of a business exception */
+            "Recipients": "samuelsimao47@gmail.com", /* ; separated list of emails that will be notified in case of a business exception */
+            "CC": "", /* ; separated list of emails that will be notified as CC in case of a business exception */
+            "BCC": "", /* ; separated list of emails that will be notified as BCC in case of a business exception */
+            "AttachmentFolders": "", /* ; separated list of folders whose files will be added as attachments in the business exception email */
+            "AttachmentFiles": "" /* ; separated list of files that will be added as attachments in the business exception email */
+          },
+        "SE": {
+            "Toggle": "True", /* Boolean that toggles if a system exception in the process will trigger system exception */
+            "BodyHtmlFilePath": "Data\\HtmlTemplates\\SE_Body.html", /* File path for the html file used as body in case of a system exception */
+            "Subject": "System exception happened", /* Subject used in case of a system exception */
+            "Recipients": "samuelsimao47@gmail.com", /* ; separated list of emails that will be notified in case of a system exception */
+            "CC": "", /* ; separated list of emails that will be notified as CC in case of a system exception */
+            "BCC": "", /* ; separated list of emails that will be notified as BCC in case of a system exception */
+            "AttachmentFolders": "", /* ; separated list of folders whose files will be added as attachments in the system exception email */
+            "AttachmentFiles": "" /* ; separated list of files that will be added as attachments in the system exception email */
+          }
+    },
+
 /*Constants*/
-    "MaxRetryNumber": 0, /* Must be 0 if working with Orchestrator queues. If > 0, the robot will retry the same transaction which failed with a system exception. Must be an integer value. */
-    "MaxSystemExceptionsAtInitialization": 2,
-    "MaxConsecutiveSystemExceptions": 0, /* The number of consecutive system exceptions allowed. If MaxConsecutiveSystemExceptions is reached, the job is stopped. To disable this feature, set the value to 0.  */
+    "Max": {
+        "RetryNumber": 0, /* Must be 0 if working with Orchestrator queues. If > 0, the robot will retry the same transaction which failed with a system exception. Must be an integer value. */
+        "SystemExceptionsAtInitialization": 2,
+        "ConsecutiveSystemExceptions": 0, /* The number of consecutive system exceptions allowed. If MaxConsecutiveSystemExceptions is reached, the job is stopped. To disable this feature, set the value to 0.  */
+    },
+    "Log":{
+        "GetTransactionData": "Processing Transaction Number:", /* Static part of logging message. Calling Get Transaction Data. */
+        "GetTransactionDataError": "Error getting transaction data for Transaction Number:", /* Static part of logging message. Error retrieving Transaction Data. */
+        "Success": "Transaction Successful.", /* Static part of logging message. Processed Transaction succesful. */
+        "BusinessRuleException": "Business rule exception.", /* Static part of logging message. Processed Transaction failed with business exception. */
+        "ApplicationException": "System exception.", /* Static part of logging message. Processed Transaction failed with application exception. */
+        "ExceptionMessage_ConsecutiveErrors": "The maximum number of consecutive system exceptions was reached." /*Error message in case MaxConsecutiveSystemExceptions number is reached.*/
+      },
+    "Retry": {
+        "GetTransactionItem": 2, /*The number of times Get Transaction Item activity is retried in case of an exception. Must be an integer >= 1.*/
+        "SetTransactionStatus": 2 /*The number of times Set transaction status activity is retried in case of an exception. Must be an integer >= 1. */
+    },
+
+/*Assets*/
 "Assets": {
     "ProcessToKill": "ProcessToKill"
 }
