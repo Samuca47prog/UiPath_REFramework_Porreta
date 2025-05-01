@@ -1,0 +1,700 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "TransactionItem&StateMachine_1",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "Configjson&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "TransactionField2&StateMachine_1",
+        "TransactionField1&StateMachine_1",
+        "TransactionID&StateMachine_1",
+        "dt_TransactionData&StateMachine_1",
+        "ConsecutiveSystemExceptions&StateMachine_1",
+        "SystemExceptionsAtInitCount&StateMachine_1",
+        "MaxSystemExceptionsAtInit&State_2",
+        "ShouldStop&Sequence_25"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJsonAssetName",
+        "in_OrchestratorQueueName",
+        "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/CloseAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/KillAllProcesses.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "ProcessToKill&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJson"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/WorkflowTestCaseTemplate.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/Email/SendEmail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/Email/SendEmail/SendEmail_IntegrationsService.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_BCC",
+        "in_CC",
+        "in_Attachments",
+        "in_Body",
+        "in_Subject",
+        "in_Recipients"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/Email/SendEmail/SendEmail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Attachments&Sequence_1",
+        "BodyAsHtml&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_BCC",
+        "in_CC",
+        "in_Recipients",
+        "in_TableReplacements",
+        "in_ImageReplacements",
+        "in_TextReplacements",
+        "in_AttachmentsFiles",
+        "in_AttachmentsFolders",
+        "in_Subject",
+        "in_BodyHtmlFilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Reusables/Email/SendEmail/SendEmail_IntegrationsService_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Body&Sequence_1",
+        "ImageReplacements&Sequence_2",
+        "TextReplacements&Sequence_2",
+        "TableReplacements&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_BodyHtmlFilePath",
+        "in_Subject",
+        "in_Recipients"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/Email/Metadata/Metadata_BuildBody.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "styleSheetComment&Sequence_20",
+        "stylesCss&Sequence_20",
+        "styleSheetPath&Sequence_20",
+        "styleTag&Sequence_20",
+        "TableHtml&Sequence_17",
+        "srcImageTag&Sequence_12",
+        "imageAsString&Sequence_12"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TableReplacements",
+        "in_ImageReplacements",
+        "in_TextReplacements",
+        "out_Body",
+        "in_BodyHtmlFilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/Email/SendEmail/SendEmail_SMTP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Subject",
+        "in_Recipients",
+        "in_Body"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Reusables/Email/Metadata/Metadata_BuildBody_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "TableReplacements&Sequence_1",
+        "ImageReplacements&Sequence_1",
+        "TextReplacements&Sequence_1",
+        "Body&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_BodyHtmlFilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/Email/Metadata/Metadata_Replacements.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtFinance&Sequence_3",
+        "dtInventory&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_TableReplacements",
+        "out_ImageReplacements",
+        "out_TextReplacements"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/Email/Metadata/Metadata_Attachments.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "FileExists&Sequence_8",
+        "FolderExists&Sequence_3",
+        "FilesInCurrentFolder&Sequence_3",
+        "FolderInfo&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_AttachmentsPaths",
+        "in_Files",
+        "in_Folders"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/KillProcesses.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_ProcessToKill"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Reusables/Email/Metadata/Metadata_Attachments_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "AttachmentsPaths&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Folders",
+        "in_Files"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Reusables/Email/SendEmail/SendEmail_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "ImageReplacements&Sequence_1",
+        "TextReplacements&Sequence_1",
+        "AttachementsFiles&Sequence_1",
+        "AttachementsFolders&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Recipients",
+        "in_BodyHtmlFilePath",
+        "in_Subject"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Porreta/ShouldReleaseThisMachine_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "ShouldReleaseThisMachine&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorFolderName"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Code_Snippets/API/API_HTTPS.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "responseHeaders&Sequence_11",
+        "url&Sequence_1",
+        "responseStatus&Sequence_1",
+        "responseContent&Sequence_1",
+        "responseJson&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/OrchApi/OrchApiHttps_GetJobs.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "FilterPropertiesUrlSegment&Sequence_18",
+        "SelectPropertiesUrlSegment&Sequence_18",
+        "responseHeaders&Sequence_16",
+        "url&Sequence_2",
+        "responseStatus&Sequence_2",
+        "responseJson&Sequence_14"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_FilterProperties",
+        "in_SelectProperties",
+        "out_ResponseContent",
+        "out_JobsJson",
+        "in_OrchestratorFolderName"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/OrchApi/OrchApiHttps_GetThisJob.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "url&Sequence_18",
+        "responseStatus&Sequence_18",
+        "responseContent&Sequence_18",
+        "responseJson&Sequence_18",
+        "responseHeaders&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_JobJson",
+        "out_Job",
+        "in_OrchestratorFolderPath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/OrchApi/OrchApiHttps_GetToken.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "responseJson&Sequence_4",
+        "responseStatus&Sequence_4",
+        "responseContent&Sequence_4",
+        "ClientId&Sequence_5",
+        "ClientSecret&Sequence_5"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Scopes",
+        "out_AccessToken",
+        "in_ExtAppCredName",
+        "in_ExtAppCredFolder",
+        "in_Url"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Reusables/OrchApi/OrchApiHttps_GetJobs_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "JobsJson&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_FilterProperties",
+        "in_SelectProperties",
+        "in_OrchestratorFolderName"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Reusables/OrchApi/OrchApiHttps_GetJobs_AllJobs_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "JobsJson&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorFolderPath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Reusables/OrchApi/OrchApiHttps_GetThisJob_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "JobJson&Sequence_1",
+        "Job&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorFolderPath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Porreta/ShouldReleaseThisMachine.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "useThisMachine&Sequence_17",
+        "hasHigherPriority&Sequence_17",
+        "PendingJobsJson&Sequence_1",
+        "currentJobJson&Sequence_1",
+        "SelectProperties&Sequence_1",
+        "FilterProperties&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_ShouldReleaseThisMachine",
+        "in_OrchestratorFolderName"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Reusables/OrchApi/OrchApiHttps_RestartJob.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "jsonPayload&Sequence_2",
+        "url&Sequence_2",
+        "responseStatus&Sequence_2",
+        "responseContent&Sequence_2",
+        "responseJson&Sequence_2",
+        "responseHeaders&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_JobId",
+        "in_OrchestratorFolderPath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/TakeScreenshot.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Screenshot&Sequence_1",
+        "ScreenshotFileInfo&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Folder",
+        "io_FilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Main_BREinInitialization_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_SettingsAndConstants&Sequence_5",
+        "dt_Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Main_SEinInitialization_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/MainTestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "StatusFileName&Sequence_1",
+        "ExpectedDataFileName&Sequence_1",
+        "dt_ResultsData&Sequence_4",
+        "dt_ExpectedData&Sequence_4"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Mocks/Main_mock.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Configjson&StateMachine_1",
+        "TransactionItem&StateMachine_1",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "TransactionField2&StateMachine_1",
+        "TransactionField1&StateMachine_1",
+        "TransactionID&StateMachine_1",
+        "dt_TransactionData&StateMachine_1",
+        "ConsecutiveSystemExceptions&StateMachine_1",
+        "SystemExceptionsAtInitCount&StateMachine_1",
+        "MaxSystemExceptionsAtInit&State_2",
+        "ShouldStop&Sequence_25"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJsonAssetName",
+        "in_OrchestratorQueueName",
+        "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Porreta/Notifications/SendEmail_BusinessExceptionForTransaction.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "BRE_TextReplacements&Sequence_35"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJson",
+        "in_TransactionItem",
+        "in_BusinessException"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Main/Main_BREInProcess_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueName",
+        "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Porreta/Notifications/SendEmail_BusinessExceptionForTransaction_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&Sequence_1",
+        "TransactionItem&Sequence_1",
+        "BusinessException&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Main/Main_BREinInitialization_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "excpt&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueName"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Porreta/Notifications/SendEmail_SystemExceptionForTransaction.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "SE_TextReplacements&Sequence_35"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJson",
+        "in_SystemsException",
+        "in_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Main/Main_SEinProcess_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueFolder",
+        "in_OrchestratorQueueName"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettingsJson.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "ConfigJsonLocalFullPath&Sequence_2",
+        "ConfigJsonLocalFullPath&Sequence_13",
+        "assetValue&Sequence_7",
+        "Assets&Sequence_6",
+        "ConfigJsonString&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_ConfigJson",
+        "in_OrchestratorQueueFolder",
+        "in_ConfigJsonAssetName"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/InitAllSettingsJson_Asset_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "ConfigJson&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJsonAssetName",
+        "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/InitAllSettingsJson_LocalFile_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "ConfigJson&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJson"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJson",
+        "in_TransactionNumber",
+        "out_TransactionItem",
+        "out_TransactionField1",
+        "out_TransactionField2",
+        "out_TransactionID",
+        "io_dt_TransactionData"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJson",
+        "in_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/SetTransactionStatus.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "QueueRetry&Sequence_17",
+        "ScreenshotPath&Sequence_17"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJson",
+        "in_BusinessException",
+        "in_TransactionField1",
+        "in_TransactionField2",
+        "in_TransactionID",
+        "in_SystemException",
+        "in_TransactionItem",
+        "io_RetryNumber",
+        "io_TransactionNumber",
+        "io_ConsecutiveSystemExceptions"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/RetryCurrentTransaction.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigJson",
+        "io_RetryNumber",
+        "io_TransactionNumber",
+        "in_SystemException",
+        "in_QueueRetry"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/Main/Main_SEinInitialization_TestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "excpt&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueName"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
