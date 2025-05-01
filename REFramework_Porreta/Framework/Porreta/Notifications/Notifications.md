@@ -1,3 +1,32 @@
+# SendEmail_Exception.xaml
+
+## Purpose
+This workflow is responsible for formatting and sending exception notification emails based on a configuration defined in the process settings. It dynamically generates text replacements and delegates the email sending to a reusable `SendEmail.xaml` workflow.
+
+## Input Arguments
+- in_ConfigJson (InArgument<JObject>)  
+  Json structure to store configuration data of the process, including settings, constants, and asset values used during the email notification setup.
+
+- in_Exception (InArgument<Exception>)  
+  Exception that triggered the error handling process.
+
+- in_TransactionItem (InArgument<QueueItem>)  
+  The transaction item being processed at the time the Business Rule Exception was thrown.
+
+- in_ExceptionOrigin (InArgument<String>)  
+  Key on the config JSON that stores the needed information for the notification (e.g., subject, recipients, body path). This field determines which config block to use under `Email/Exception`. Examples: `BRE_inProcess` and `SE_inProcess`.
+
+## Output Arguments
+*(None)*
+
+## Workflow Structure
+The workflow begins by checking if email notifications for the provided exception origin are enabled in the configuration. If enabled, it constructs a dictionary of text replacements containing exception and transaction details, such as recipient name, message, and reference. It then calls a reusable workflow (`SendEmail.xaml`) to send the email, passing the prepared arguments including the text replacements.
+
+## Error Handling
+---
+
+
+
 # Workaround for External CSS in Email Templates
 
 ## Purpose
@@ -35,27 +64,5 @@ Each HTML email template includes a comment inside its `<style>` tag that indica
 * Email-safe output: Results in a fully inlined <style> section that works across email clients like Gmail, Outlook, etc.
 
 
-# SendEmail_BusinessExceptionForTransaction.xaml
 
-## Purpose
-This workflow is responsible for preparing and sending a notification email when a Business Rule Exception occurs during the processing of a transaction item.
-
-## Input Arguments
-- in_Config (InArgument<Dictionary<String, Object>>)
-Dictionary structure to store configuration data of the process, including settings, constants, and asset values used during the email notification setup.
-
-- in_BusinessException (InArgument<BusinessRuleException>)
-The Business Rule Exception that triggered the error handling process.
-
-- in_TransactionItem (InArgument<QueueItem>)
-The transaction item being processed at the time the Business Rule Exception was thrown.
-
-## Output Arguments
-(None)
-
-## Workflow Structure
-The workflow begins by checking a configuration toggle that enables or disables the sending of business exception notifications. If enabled, it builds a dictionary of text replacements using the exception and transaction data, then invokes a reusable email-sending workflow with the prepared arguments.
-
-## Error Handling
-This workflow does not explicitly throw new exceptions. It assumes the exception has already occurred and is being handled. The process includes a `Return` activity that safely exits early if the notification toggle is disabled.
 

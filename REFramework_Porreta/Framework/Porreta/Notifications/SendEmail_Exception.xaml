@@ -1,9 +1,9 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="SendEmail_Exception" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_ConfigJson" Type="InArgument(njl:JObject)" />
-    <x:Property Name="in_Exception" Type="InArgument(s:Exception)" />
-    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
-    <x:Property Name="in_ExceptionOrigin" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Json structure to store configuration data of the process, including settings, constants, and asset values used during the email notification setup." Name="in_ConfigJson" Type="InArgument(njl:JObject)" />
+    <x:Property sap2010:Annotation.AnnotationText="Exception that triggered the error handling process." Name="in_Exception" Type="InArgument(s:Exception)" />
+    <x:Property sap2010:Annotation.AnnotationText="The transaction item being processed at the time the Business Rule Exception was thrown." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Key on the Json config that stores the needed information for the notification, like subject, recipients, html, etc." Name="in_ExceptionOrigin" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
