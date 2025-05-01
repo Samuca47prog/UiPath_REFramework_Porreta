@@ -198,13 +198,6 @@
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "c90179ce-73ad-4719-b7f3-d6217e3c9286",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Porreta\\Notifications\\SendEmail_BusinessExceptionForTransaction_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
         "testCaseId": "75501317-2426-45c8-994e-41fe92e44ad5",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
@@ -222,6 +215,13 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\InitAllSettingsJson_Asset_TestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "c90179ce-73ad-4719-b7f3-d6217e3c9286",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Porreta\\Notifications\\SendEmail_Exception_TestCase.xaml"
       }
     ],
     "saveToCloud": false

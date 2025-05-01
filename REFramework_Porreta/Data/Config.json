@@ -1,6 +1,6 @@
 { /*Settings*/
     "Orchestrator": {
-        "QueueName": "Tests", /* Orchestrator queue Name. The value must match with the queue name defined on Orchestrator. */
+        "QueueName": "TestQueue", /* Orchestrator queue Name. The value must match with the queue name defined on Orchestrator. */
         "QueueFolder": "Porreta" /* Folder name. The value must match a folder defined in Orchestrator and queue specified as OrchestratorQueueName should be created in this folder. For classic folders leave the value field empty. */
     },
     "LogF": {
@@ -16,26 +16,28 @@
     "ProcessToKill": "notepad.exe", /* Define process to be killed in KillAllProcesses.xaml if in_ProcessToKill is null */
 
     "Email": {
-        "BRE": {
-            "Toggle": "True", /* Boolean that toggles if a business exception in the process will trigger business exception */
-            "BodyHtmlFilePath": "Data\\HtmlTemplates\\BRE_Body.html", /* File path for the html file used as body in case of a business exception */
-            "Subject": "Business exception happened", /* Subject used in case of a business exception */
-            "Recipients": "samuelsimao47@gmail.com", /* ; separated list of emails that will be notified in case of a business exception */
-            "CC": "", /* ; separated list of emails that will be notified as CC in case of a business exception */
-            "BCC": "", /* ; separated list of emails that will be notified as BCC in case of a business exception */
-            "AttachmentFolders": "", /* ; separated list of folders whose files will be added as attachments in the business exception email */
-            "AttachmentFiles": "" /* ; separated list of files that will be added as attachments in the business exception email */
-          },
-        "SE": {
-            "Toggle": "True", /* Boolean that toggles if a system exception in the process will trigger system exception */
-            "BodyHtmlFilePath": "Data\\HtmlTemplates\\SE_Body.html", /* File path for the html file used as body in case of a system exception */
-            "Subject": "System exception happened", /* Subject used in case of a system exception */
-            "Recipients": "samuelsimao47@gmail.com", /* ; separated list of emails that will be notified in case of a system exception */
-            "CC": "", /* ; separated list of emails that will be notified as CC in case of a system exception */
-            "BCC": "", /* ; separated list of emails that will be notified as BCC in case of a system exception */
-            "AttachmentFolders": "", /* ; separated list of folders whose files will be added as attachments in the system exception email */
-            "AttachmentFiles": "" /* ; separated list of files that will be added as attachments in the system exception email */
-          }
+        "Exception":{
+            "BRE_inProcess": {
+                "Enabled": "True", /* Boolean that toggles if a business exception in the process will trigger business exception */
+                "BodyHtmlFilePath": "Data\\HtmlTemplates\\BRE_Body.html", /* File path for the html file used as body in case of a business exception */
+                "Subject": "Business exception happened", /* Subject used in case of a business exception */
+                "Recipients": "samuelsimao47@gmail.com", /* ; separated list of emails that will be notified in case of a business exception */
+                "CC": "", /* ; separated list of emails that will be notified as CC in case of a business exception */
+                "BCC": "", /* ; separated list of emails that will be notified as BCC in case of a business exception */
+                "AttachmentFolders": "", /* ; separated list of folders whose files will be added as attachments in the business exception email */
+                "AttachmentFiles": "" /* ; separated list of files that will be added as attachments in the business exception email */
+            },
+            "SE_inProcess": {
+                "Enabled": "True", /* Boolean that toggles if a system exception in the process will trigger system exception */
+                "BodyHtmlFilePath": "Data\\HtmlTemplates\\SE_Body.html", /* File path for the html file used as body in case of a system exception */
+                "Subject": "System exception happened", /* Subject used in case of a system exception */
+                "Recipients": "samuelsimao47@gmail.com", /* ; separated list of emails that will be notified in case of a system exception */
+                "CC": "", /* ; separated list of emails that will be notified as CC in case of a system exception */
+                "BCC": "", /* ; separated list of emails that will be notified as BCC in case of a system exception */
+                "AttachmentFolders": "", /* ; separated list of folders whose files will be added as attachments in the system exception email */
+                "AttachmentFiles": "" /* ; separated list of files that will be added as attachments in the system exception email */
+            }
+        }
     },
 
 /*Constants*/

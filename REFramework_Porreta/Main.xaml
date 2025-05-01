@@ -133,7 +133,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <StateMachine InitialState="{x:Reference __ReferenceID1}" sap2010:Annotation.AnnotationText="[RE Framework Porreta]&#xA;[Enhenced REF]&#xA;[Samuel Simão, samuelsimao47@gmail.com]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="950,512.04" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID1}" sap2010:Annotation.AnnotationText="[RE Framework Porreta]&#xA;[Enhenced REF]&#xA;[Samuel Simão, samuelsimao47@gmail.com]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="950,775.3733333333332" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -480,7 +480,7 @@
                 <Transition DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="451.3333333333333,570" sap2010:WorkflowViewState.IdRef="Transition_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">297.133333333333,651.3333333333337 297.133333333333,674.1333333333333 485,674.1333333333333 485,74.13333333333333 455,74.13333333333333</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">297.133333333333,651.3333333333337 297.133333333333,691.3733333333332 554,691.3733333333332 554,74.13333333333333 455,74.13333333333333</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">23</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">40</x:Int32>
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -934,11 +934,12 @@
                     </State>
                   </Transition.To>
                   <Transition.Action>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_SystemExceptionForTransaction - Invoke Workflow File (Framework\Porreta\Notifications\SendEmail_SystemExceptionForTransaction.xaml)" sap:VirtualizedContainerService.HintSize="337.3333333333333,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_34" UnSafe="False" WorkflowFileName="Framework\Porreta\Notifications\SendEmail_SystemExceptionForTransaction.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_Exception - Invoke Workflow File (Framework\Porreta\Notifications\SendEmail_Exception.xaml)" sap:VirtualizedContainerService.HintSize="336.6666666666667,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_36" UnSafe="False" WorkflowFileName="Framework\Porreta\Notifications\SendEmail_Exception.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
-                        <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemsException">[SystemException]</InArgument>
                         <InArgument x:TypeArguments="njl:JObject" x:Key="in_ConfigJson">[Configjson]</InArgument>
+                        <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">[SystemException]</InArgument>
+                        <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_ExceptionOrigin">SE_inProcess</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </Transition.Action>
@@ -947,7 +948,7 @@
                 <Transition sap2010:Annotation.AnnotationText="Business Rule Exception" DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="451.3333333333333,600.6666666666666" sap2010:WorkflowViewState.IdRef="Transition_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">349.46666666666636,651.3333333333337 349.46666666666636,665.5333333333331 483.66666666666634,665.5333333333331 483.66666666666634,245.53333333333302 453.66666666666634,245.53333333333302</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">349.46666666666636,651.3333333333337 349.46666666666636,682.04 521.3333333333333,682.04 521.3333333333333,245.53333333333302 453.66666666666634,245.53333333333302</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">43</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">20</x:Int32>
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -958,11 +959,12 @@
                     <x:Reference>__ReferenceID0</x:Reference>
                   </Transition.To>
                   <Transition.Action>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_BusinessExceptionForTransaction - Invoke Workflow File (Framework\Porreta\Notifications\SendEmail_BusinessExceptionForTransaction.xaml)" sap:VirtualizedContainerService.HintSize="338,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="Framework\Porreta\Notifications\SendEmail_BusinessExceptionForTransaction.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_Exception - Invoke Workflow File (Framework\Porreta\Notifications\SendEmail_Exception.xaml)" sap:VirtualizedContainerService.HintSize="336.6666666666667,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="Framework\Porreta\Notifications\SendEmail_Exception.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">[BusinessException]</InArgument>
-                        <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
                         <InArgument x:TypeArguments="njl:JObject" x:Key="in_ConfigJson">[Configjson]</InArgument>
+                        <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">[BusinessException]</InArgument>
+                        <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_ExceptionOrigin">BRE_inProcess</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </Transition.Action>
@@ -971,7 +973,7 @@
                 <Transition sap2010:Annotation.AnnotationText="There is no need for any action in case of successful transaction.&#xA;The process should simply go to next transaction." DisplayName="Success" sap:VirtualizedContainerService.HintSize="496,547.3333333333334" sap2010:WorkflowViewState.IdRef="Transition_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">391.33333333333303,651.3333333333337 391.33333333333303,679.7999999999997 483.66666666666634,679.7999999999997 483.66666666666634,289.79999999999967 453.66666666666634,289.79999999999967</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">391.33333333333303,651.3333333333337 391.33333333333303,673.3733333333332 473.3333333333333,673.3733333333332 473.3333333333333,289.79999999999967 453.66666666666634,289.79999999999967</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">59</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">52</x:Int32>
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
