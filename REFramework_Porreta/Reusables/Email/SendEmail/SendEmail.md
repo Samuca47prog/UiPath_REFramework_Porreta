@@ -7,9 +7,6 @@ This workflow is responsible for composing and sending email with dynamic conten
 - in_BodyHtmlFilePath (InArgument<String>)
   Path to the baseline HTML file used as the template for the email body.
 
-- in_Subject (InArgument<String>)
-  Subject line of the email to be sent.
-
 - in_Recipients (InArgument<String[]>)
   List of emails that will receive the email.
 
@@ -68,6 +65,10 @@ Dictionary mapping keys to DataTable objects.
 - out_Body (OutArgument<String>)
 Final HTML content after performing all replacements.
 
+- out_Subject (InArgument<String>)
+  Subject line of the email to be sent.
+  defined by the first h1 content in the body html
+
 ## Workflow Structure
 The Build Body sequence constructs the final HTML email body by reading a template file and performing dynamic replacements for text, images, and tables, if provided. It iterates through the provided dictionaries to replace placeholders in the template with the corresponding values (e.g., text replacements, Base64-encoded image tags, or HTML tables). Key activities include conditional checks for replacements, iterative updates to the body content, and the dynamic generation of HTML elements.
 
@@ -90,6 +91,7 @@ This workflow is responsible for building a consolidated list of file paths (att
 ## Output Arguments
 - out_AttachmentsPaths (OutArgument<List<String>>)
   List containing the full paths of all files that exist and were collected from both folder and file inputs.
+
 
 ## Workflow Structure
 The workflow begins by initializing an empty list of attachments. It iterates through each folder in `in_Folders`, checks for existence, retrieves the file paths, and merges them into the output list. It then processes each file in `in_Files`, validating their existence and adding valid ones to the same list. All invalid paths trigger a log message.
