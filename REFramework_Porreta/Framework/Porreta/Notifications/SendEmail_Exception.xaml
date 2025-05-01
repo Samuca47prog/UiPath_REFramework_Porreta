@@ -104,7 +104,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendEmail_Exception" sap:VirtualizedContainerService.HintSize="932.6666666666666,1238" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendEmail_Exception" sap:VirtualizedContainerService.HintSize="932.6666666666666,1363.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="TextReplacements" />
     </Sequence.Variables>
@@ -113,13 +113,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="SendEmail Exception" sap:VirtualizedContainerService.HintSize="546.6666666666666,1215.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="SendEmail Exception" sap:VirtualizedContainerService.HintSize="611.3333333333334,1340.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If sap2010:Annotation.AnnotationText="Checks config exception notification is enabled, which enables the notification if set to True" Condition="[Not Cbool(in_ConfigJson(&quot;Email&quot;)(&quot;Exception&quot;)(in_ExceptionOrigin)(&quot;Enabled&quot;))]" DisplayName="If - Check exception notification enabled" sap:VirtualizedContainerService.HintSize="512.6666666666666,136" sap2010:WorkflowViewState.IdRef="If_1">
+      <If sap2010:Annotation.AnnotationText="Checks config exception notification is enabled, which enables the notification if set to True" Condition="[Not Cbool(in_ConfigJson(&quot;Email&quot;)(&quot;Exception&quot;)(in_ExceptionOrigin)(&quot;Enabled&quot;))]" DisplayName="If - Check exception notification enabled" sap:VirtualizedContainerService.HintSize="577.3333333333334,136" sap2010:WorkflowViewState.IdRef="If_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -149,14 +149,14 @@
           </Sequence>
         </If.Else>
       </If>
-      <Sequence DisplayName="Text Replacements" sap:VirtualizedContainerService.HintSize="512.6666666666666,853.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence DisplayName="Text Replacements" sap:VirtualizedContainerService.HintSize="577.3333333333334,978.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Instantiate&#xA;2. Recipient_Name - Default is first user of the first email of recipients" DisplayName="Multiple Assign - Text Replacements details for Exception" sap:VirtualizedContainerService.HintSize="478.6666666666667,225.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Instantiate&#xA;2. Recipient_Name - Default is first user of the first email of recipients" DisplayName="Multiple Assign - Text Replacements details for Exception" sap:VirtualizedContainerService.HintSize="543.3333333333334,225.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
           <ui:MultipleAssign.AssignOperations>
             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -183,7 +183,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:MultipleAssign>
-        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Exception_Message &#xA;2. Exception_Source &#xA;3. Exception_StackTrace " DisplayName="Multiple Assign - Text Replacements Exception details for Exception" sap:VirtualizedContainerService.HintSize="478.6666666666667,272.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Exception_Message &#xA;2. Exception_Source &#xA;3. Exception_StackTrace " DisplayName="Multiple Assign - Text Replacements Exception details for Exception" sap:VirtualizedContainerService.HintSize="543.3333333333334,272.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
           <ui:MultipleAssign.AssignOperations>
             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -218,46 +218,74 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:MultipleAssign>
-        <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Transaction_Reference &#xA;2. Start_DateTime &#xA;3. Specific_Content - Dictionary formated to string key: value" DisplayName="Multiple Assign - Text Replacements Transaction details for Exception" sap:VirtualizedContainerService.HintSize="478.6666666666667,263.3333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
-          <ui:MultipleAssign.AssignOperations>
-            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                <ui:AssignOperation.To>
-                  <OutArgument x:TypeArguments="x:String">[TextReplacements("Transaction_Reference")]</OutArgument>
-                </ui:AssignOperation.To>
-                <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[in_TransactionItem.Reference]</InArgument>
-                </ui:AssignOperation.Value>
-              </ui:AssignOperation>
-              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                <ui:AssignOperation.To>
-                  <OutArgument x:TypeArguments="x:String">[TextReplacements("Start_Datetime")]</OutArgument>
-                </ui:AssignOperation.To>
-                <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[in_TransactionItem.StartTransactionTime.ToString]</InArgument>
-                </ui:AssignOperation.Value>
-              </ui:AssignOperation>
-              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                <ui:AssignOperation.To>
-                  <OutArgument x:TypeArguments="x:String">[TextReplacements("Specific_Content")]</OutArgument>
-                </ui:AssignOperation.To>
-                <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[String.Join(
-	Environment.NewLine, 
-	in_TransactionItem.SpecificContent.Select(Function(x) x.Key+": "+x.Value.ToString)
-)]</InArgument>
-                </ui:AssignOperation.Value>
-              </ui:AssignOperation>
-            </scg:List>
-          </ui:MultipleAssign.AssignOperations>
+        <If sap2010:Annotation.AnnotationText="Get information for transaction details" Condition="[Not IsNothing(in_TransactionItem)]" DisplayName="If - Transaction exists" sap:VirtualizedContainerService.HintSize="543.3333333333334,388.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-        </ui:MultipleAssign>
+          <If.Then>
+            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="509.3333333333333,170" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign sap2010:Annotation.AnnotationText="1. Transaction_Reference &#xA;2. Start_DateTime &#xA;3. Specific_Content - Dictionary formated to string key: value" DisplayName="Multiple Assign - Text Replacements Transaction details for Exception" sap:VirtualizedContainerService.HintSize="475.3333333333333,110" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[TextReplacements("Transaction_Reference")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[in_TransactionItem.Reference]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[TextReplacements("Start_Datetime")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[in_TransactionItem.StartTransactionTime.ToString]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[TextReplacements("Specific_Content")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[String.Join(
+	Environment.NewLine, 
+	in_TransactionItem.SpecificContent.Select(Function(x) x.Key+": "+x.Value.ToString)
+)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:MultipleAssign>
+            </Sequence>
+          </If.Then>
+          <If.Else>
+            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Sequence>
+          </If.Else>
+        </If>
       </Sequence>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Dev Note&#xA;&#xA;Image and Table replacements are not yet implemented!" DisplayName="SendEmail - Invoke Workflow File (Reusables\Email\SendEmail\SendEmail.xaml)" sap:VirtualizedContainerService.HintSize="512.6666666666666,143.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Reusables\Email\SendEmail\SendEmail.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Dev Note&#xA;&#xA;Image and Table replacements are not yet implemented!" DisplayName="SendEmail - Invoke Workflow File (Reusables\Email\SendEmail\SendEmail.xaml)" sap:VirtualizedContainerService.HintSize="577.3333333333334,143.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Reusables\Email\SendEmail\SendEmail.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="in_BodyHtmlFilePath">[in_ConfigJson("Email")("Exception")(in_ExceptionOrigin)("BodyHtmlFilePath").ToString]</InArgument>
           <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[in_ConfigJson("Email")("Exception")(in_ExceptionOrigin)("Subject").ToString]</InArgument>

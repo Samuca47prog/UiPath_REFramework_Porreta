@@ -36,6 +36,16 @@
                 "BCC": "", /* ; separated list of emails that will be notified as BCC in case of a system exception */
                 "AttachmentFolders": "", /* ; separated list of folders whose files will be added as attachments in the system exception email */
                 "AttachmentFiles": "" /* ; separated list of files that will be added as attachments in the system exception email */
+            },
+            "Exception_inInit":{
+                "Enabled": "True", /* Boolean that toggles if a system exception in the process will trigger system exception */
+                "BodyHtmlFilePath": "Data\\HtmlTemplates\\ExceptionInit_Body.html", /* File path for the html file used as body in case of a system exception */
+                "Subject": "Exception happened in Initialization", /* Subject used in case of a system exception */
+                "Recipients": "samuelsimao47@gmail.com", /* ; separated list of emails that will be notified in case of a system exception */
+                "CC": "", /* ; separated list of emails that will be notified as CC in case of a system exception */
+                "BCC": "", /* ; separated list of emails that will be notified as BCC in case of a system exception */
+                "AttachmentFolders": "", /* ; separated list of folders whose files will be added as attachments in the system exception email */
+                "AttachmentFiles": "" /* ; separated list of files that will be added as attachments in the system exception email */
             }
         }
     },
