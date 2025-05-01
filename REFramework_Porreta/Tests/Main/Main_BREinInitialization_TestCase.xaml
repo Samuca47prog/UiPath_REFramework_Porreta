@@ -96,7 +96,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main_BREinInitialization_TestCase" sap:VirtualizedContainerService.HintSize="932.6666666666666,874.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main_BREinInitialization_TestCase" sap:VirtualizedContainerService.HintSize="872.6666666666666,874.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:Exception" Name="excpt" />
     </Sequence.Variables>
@@ -123,8 +123,9 @@
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Main_mock - Invoke Workflow File (Mocks\Main_mock.xaml)" sap:VirtualizedContainerService.HintSize="336.6666666666667,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Mocks\Main_mock.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueName">[in_OrchestratorQueueName]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueFolder">BREinInitialization</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueFolder">[in_OrchestratorQueueName]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_ConfigJsonAssetName" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_TestScenario">BREinInitialization</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </TryCatch.Try>
@@ -159,7 +160,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Expression - BRE happened in initialization" Expression="[Not IsNothing(excpt) AndAlso&#xA;excpt.Message.Equals(&quot;Forced BRE in initialization&quot;)]" sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="VerifyExpression_1" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False" />
+      <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Expression - BRE happened in initialization" Expression="[Not IsNothing(excpt) AndAlso&#xD;&#xA;excpt.Message.Equals(&quot;Forced BRE in initialization&quot;)]" sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="VerifyExpression_1" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False" />
     </Sequence>
   </Sequence>
 </Activity>

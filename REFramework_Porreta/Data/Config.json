@@ -8,7 +8,7 @@
     },
     "FlowControl":{
         "UpdateLocalConfig": false, /* If true, gets the asset value and save to the local config json */
-        "ShouldMarkJobAsFaulted": false /* Must be TRUE or FALSE. If the value is TRUE and an error occurs in Initialization state or the MaxConsecutiveSystemExceptions is reached, the job is marked as Faulted. */
+        "ShouldMarkJobAsFaulted": true /* Must be TRUE or FALSE. If the value is TRUE and an error occurs in Initialization state or the MaxConsecutiveSystemExceptions is reached, the job is marked as Faulted. */
     },
     "Path":{
         "ScreenshotsFolder": "Exceptions_Screenshots" /*Where to save exceptions screenshots - can be a full or a relative path.*/
@@ -48,6 +48,9 @@
                 "AttachmentFiles": "" /* ; separated list of files that will be added as attachments in the system exception email */
             }
         }
+    },
+    "Test":{
+        "Scenario": ""
     },
 
 /*Constants*/

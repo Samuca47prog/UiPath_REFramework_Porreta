@@ -33,6 +33,18 @@
       "Name": "in_ConfigJsonAssetName",
       "DisplayName": "in_ConfigJsonAssetName",
       "Category": null,
+      "Tooltip": "Name of the config json asset",
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "in_TestScenario",
+      "DisplayName": "in_TestScenario",
+      "Category": null,
       "Tooltip": null,
       "Placeholder": null,
       "Widget": null,

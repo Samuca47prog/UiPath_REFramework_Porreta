@@ -1,5 +1,6 @@
 ## 2025.05.01
 Put email subjedt in the body HTML
+Find a solution for testing. using the folder name do not works anymore
 
 
 ## 2025.04.29
