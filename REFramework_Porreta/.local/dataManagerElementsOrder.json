@@ -28,9 +28,10 @@
         "ShouldStop&Sequence_25"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueFolder",
         "in_ConfigJsonAssetName",
-        "in_OrchestratorQueueName",
-        "in_OrchestratorQueueFolder"
+        "in_TestScenario",
+        "in_OrchestratorQueueName"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -92,6 +93,7 @@
       "Path": "Reusables/Email/SendEmail/SendEmail.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "Subject&Sequence_1",
         "Attachments&Sequence_1",
         "BodyAsHtml&Sequence_1"
       ],
@@ -104,7 +106,6 @@
         "in_TextReplacements",
         "in_AttachmentsFiles",
         "in_AttachmentsFolders",
-        "in_Subject",
         "in_BodyHtmlFilePath"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -140,6 +141,7 @@
         "imageAsString&Sequence_12"
       ],
       "ArgumentsSectionElementsOrder": [
+        "out_Subject",
         "in_TableReplacements",
         "in_ImageReplacements",
         "in_TextReplacements",
@@ -487,6 +489,7 @@
         "ShouldStop&Sequence_25"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_TestScenario",
         "in_ConfigJsonAssetName",
         "in_OrchestratorQueueName",
         "in_OrchestratorQueueFolder"
@@ -495,23 +498,11 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Framework/Porreta/Notifications/SendEmail_BusinessExceptionForTransaction.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "BRE_TextReplacements&Sequence_35"
-      ],
-      "ArgumentsSectionElementsOrder": [
-        "in_ConfigJson",
-        "in_TransactionItem",
-        "in_BusinessException"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
       "Path": "Tests/Main/Main_BREInProcess_TestCase.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
+      "VariablesSectionElementsOrder": [
+        "excpt&Sequence_1"
+      ],
       "ArgumentsSectionElementsOrder": [
         "in_OrchestratorQueueName",
         "in_OrchestratorQueueFolder"
@@ -520,14 +511,17 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Tests/Porreta/Notifications/SendEmail_BusinessExceptionForTransaction_TestCase.xaml",
+      "Path": "Tests/Porreta/Notifications/SendEmail_Exception_TestCase.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "Config&Sequence_1",
+        "ConfigJson&Sequence_1",
         "TransactionItem&Sequence_1",
         "BusinessException&Sequence_1"
       ],
-      "ArgumentsSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_ExceptionOrigin",
+        "in_OrchestratorQueueFolder"
+      ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     },
@@ -544,23 +538,11 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Framework/Porreta/Notifications/SendEmail_SystemExceptionForTransaction.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "SE_TextReplacements&Sequence_35"
-      ],
-      "ArgumentsSectionElementsOrder": [
-        "in_ConfigJson",
-        "in_SystemsException",
-        "in_TransactionItem"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
       "Path": "Tests/Main/Main_SEinProcess_TestCase.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
+      "VariablesSectionElementsOrder": [
+        "excpt&Sequence_1"
+      ],
       "ArgumentsSectionElementsOrder": [
         "in_OrchestratorQueueFolder",
         "in_OrchestratorQueueName"
@@ -691,7 +673,23 @@
         "excpt&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorFolderName",
         "in_OrchestratorQueueName"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Porreta/Notifications/SendEmail_Exception.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "TextReplacements&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ExceptionOrigin",
+        "in_TransactionItem",
+        "in_Exception",
+        "in_ConfigJson"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
