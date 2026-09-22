@@ -1,0 +1,6 @@
+{
+  "Name": "REFramework_Porreta",
+  "ProjectType": "Process",
+  "Description": "Robotic Enterprise Framework Porreta",
+  "MainFile": "Main.xaml"
+}

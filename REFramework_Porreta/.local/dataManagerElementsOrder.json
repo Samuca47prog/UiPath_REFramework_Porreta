@@ -12,6 +12,7 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "SuccessfulTransactionCount&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
@@ -473,6 +474,7 @@
       "Path": "Mocks/Main_mock.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "SuccessfulTransactionCount&StateMachine_1",
         "Configjson&StateMachine_1",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",

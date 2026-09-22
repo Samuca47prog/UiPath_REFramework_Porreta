@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n0QUIxzUBaw/xRo6H0LDwDMh30VgNL0bTYsXiGmLKSPN/jkYSHAnAusGdGYl8pajeDHA/BxNBOo4ihFDKxentQ==",
+  "dgSpecHash": "KDIeLjy2Dm8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\samuel.simao\\OneDrive - UiPath\\Documents\\UiPath\\UiPath_REFramework_Porreta\\REFramework_Porreta\\.local\\",
+  "projectFilePath": "C:\\Users\\samuel.simao\\OneDrive - UiPath\\Documents\\UiPath\\My utilities\\UiPath_REFramework_Porreta\\REFramework_Porreta\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\samuel.simao\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\samuel.simao\\.nuget\\packages\\avalonedit\\6.1.3.50\\avalonedit.6.1.3.50.nupkg.sha512",
@@ -288,8 +288,8 @@
     "C:\\Users\\samuel.simao\\.nuget\\packages\\uipath.uiautomation.activities.runtime\\24.10.0\\uipath.uiautomation.activities.runtime.24.10.0.nupkg.sha512",
     "C:\\Users\\samuel.simao\\.nuget\\packages\\uipath.uiautomation.activities.runtime.design\\24.10.0\\uipath.uiautomation.activities.runtime.design.24.10.0.nupkg.sha512",
     "C:\\Users\\samuel.simao\\.nuget\\packages\\uipath.vision\\3.13.2\\uipath.vision.3.13.2.nupkg.sha512",
-    "C:\\Users\\samuel.simao\\.nuget\\packages\\uipath.webapi.activities\\1.21.1-beta.6744221\\uipath.webapi.activities.1.21.1-beta.6744221.nupkg.sha512",
-    "C:\\Users\\samuel.simao\\.nuget\\packages\\uipath.webapi.activities.runtime\\1.21.1-beta.6744221\\uipath.webapi.activities.runtime.1.21.1-beta.6744221.nupkg.sha512",
+    "C:\\Users\\samuel.simao\\.nuget\\packages\\uipath.webapi.activities\\1.21.1\\uipath.webapi.activities.1.21.1.nupkg.sha512",
+    "C:\\Users\\samuel.simao\\.nuget\\packages\\uipath.webapi.activities.runtime\\1.21.1\\uipath.webapi.activities.runtime.1.21.1.nupkg.sha512",
     "C:\\Users\\samuel.simao\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512"
   ],
   "logs": []
