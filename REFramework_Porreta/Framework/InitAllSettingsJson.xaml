@@ -103,21 +103,17 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="InitAllSettingsJson" sap:VirtualizedContainerService.HintSize="932.6666666666666,1566" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="InitAllSettingsJson" sap:VirtualizedContainerService.HintSize="1218,2869" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message (Initialize All Settings)" sap:VirtualizedContainerService.HintSize="518,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Initializing settings from json...&quot;]" />
-    <Sequence sap2010:Annotation.AnnotationText="Read config json from Asset or from Local File" DisplayName="Read Config Json" sap:VirtualizedContainerService.HintSize="518,1240" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message (Initialize All Settings)" sap:VirtualizedContainerService.HintSize="522,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Initializing settings from json...&quot;]" />
+    <Sequence sap2010:Annotation.AnnotationText="Read config json from Asset or from Local File" DisplayName="Read Config Json" sap:VirtualizedContainerService.HintSize="522,1171" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="ConfigJsonString" />
-        <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Config Json Local full path. Used when Asset name was not given." Name="ConfigJsonLocalFullPath">
-          <Variable.Default>
-            <Literal x:TypeArguments="x:String">Data\Config.json</Literal>
-          </Variable.Default>
-        </Variable>
+        <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Config Json Local full path. Used when Asset name was not given." Default="Data\Config.json" Name="ConfigJsonLocalFullPath" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -126,7 +122,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If sap2010:Annotation.AnnotationText="If in_ConfigJsonAssetName is given, Asset value will be used as Config.&#xD;&#xA;Else, Local file at ConfigJsonLocalFullPath will be used" Condition="[Not String.IsNullOrWhiteSpace(in_ConfigJsonAssetName)]" DisplayName="If - Config Json Asset name was given" sap:VirtualizedContainerService.HintSize="484,407.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+      <If sap2010:Annotation.AnnotationText="If in_ConfigJsonAssetName is given, Asset value will be used as Config.&#xA;Else, Local file at ConfigJsonLocalFullPath will be used" Condition="[Not String.IsNullOrWhiteSpace(in_ConfigJsonAssetName)]" DisplayName="If - Config Json Asset name was given" sap:VirtualizedContainerService.HintSize="486,373" sap2010:WorkflowViewState.IdRef="If_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -135,7 +131,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence DisplayName="Then - Get Asset" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Then - Get Asset" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -172,25 +168,25 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Else - Get Local Json" sap:VirtualizedContainerService.HintSize="416,164.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Else - Get Local Json" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ReadTextFile File="{x:Null}" Content="[ConfigJsonString]" DisplayName="Read Text File - Config Json" FileName="[ConfigJsonLocalFullPath]" sap:VirtualizedContainerService.HintSize="382,104.66666666666667" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+            <ui:ReadTextFile File="{x:Null}" Content="[ConfigJsonString]" DisplayName="Read Text File - Config Json" FileName="[ConfigJsonLocalFullPath]" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
           </Sequence>
         </If.Else>
       </If>
-      <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON - Config" sap:VirtualizedContainerService.HintSize="484,124" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[out_ConfigJson]" JsonString="[ConfigJsonString]" />
-      <Sequence DisplayName="Update Local Config" sap:VirtualizedContainerService.HintSize="484,586" sap2010:WorkflowViewState.IdRef="Sequence_12">
+      <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON - Config" sap:VirtualizedContainerService.HintSize="486,123" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[out_ConfigJson]" JsonString="[ConfigJsonString]" />
+      <Sequence DisplayName="Update Local Config" sap:VirtualizedContainerService.HintSize="486,552" sap2010:WorkflowViewState.IdRef="Sequence_12">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <If sap2010:Annotation.AnnotationText="Update Local Config is enabled and Config Json Asset name was given" Condition="[CBool(out_ConfigJson(&quot;FlowControl&quot;)(&quot;UpdateLocalConfig&quot;)) AndAlso&#xD;&#xA;Not String.IsNullOrWhiteSpace(in_ConfigJsonAssetName)]" DisplayName="If - Update Local Config is enabled and Config Json Asset name was given" sap:VirtualizedContainerService.HintSize="450,503.3333333333333" sap2010:WorkflowViewState.IdRef="If_3">
+        <If sap2010:Annotation.AnnotationText="Update Local Config is enabled and Config Json Asset name was given" Condition="[CBool(out_ConfigJson(&quot;FlowControl&quot;)(&quot;UpdateLocalConfig&quot;)) AndAlso&#xA;Not String.IsNullOrWhiteSpace(in_ConfigJsonAssetName)]" DisplayName="If - Update Local Config is enabled and Config Json Asset name was given" sap:VirtualizedContainerService.HintSize="452,469" sap2010:WorkflowViewState.IdRef="If_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -199,18 +195,18 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <Sequence DisplayName="Then - Save Asset in Local Config Json" sap:VirtualizedContainerService.HintSize="416,219.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <Sequence DisplayName="Then - Save Asset in Local Config Json" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_14">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File - Local Config Asset" FileName="[ConfigJsonLocalFullPath]" sap:VirtualizedContainerService.HintSize="382,159.33333333333334" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[ConfigJsonString]" />
+              <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File - Local Config Asset" FileName="[ConfigJsonLocalFullPath]" sap:VirtualizedContainerService.HintSize="416,158" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[ConfigJsonString]" />
             </Sequence>
           </If.Then>
           <If.Else>
-            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_13">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Config Json Local full path. Used when Asset name was not given." Default="Data\Config.json" Name="ConfigJsonLocalFullPath" />
               </Sequence.Variables>
@@ -224,18 +220,18 @@
         </If>
       </Sequence>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Assets are loaded like the regular excel approach:&#xD;&#xA;1. Assets section is read and iterated&#xD;&#xA;2. Values are taken from orchestrator and put into the corresponsing keys&#xD;&#xA;3. In the Assets section, values represent the asset name in the orchestrator" DisplayName="Initialize Assets" sap:VirtualizedContainerService.HintSize="518,126.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence sap2010:Annotation.AnnotationText="Assets are loaded like the regular excel approach:&#xA;1. Assets section is read and iterated&#xA;2. Values are taken from orchestrator and put into the corresponsing keys&#xA;3. In the Assets section, values represent the asset name in the orchestrator" DisplayName="Initialize Assets" sap:VirtualizedContainerService.HintSize="522,1500" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <Sequence.Variables>
         <Variable x:TypeArguments="njl:JToken" Name="Assets" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="574.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="njl:JToken">[Assets]</OutArgument>
         </Assign.To>
@@ -243,13 +239,42 @@
           <InArgument x:TypeArguments="njl:JToken">[out_ConfigJson("Assets")]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each currentAsset" sap:VirtualizedContainerService.HintSize="574.6666666666666,814.6666666666666" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Assets]">
+      <If sap2010:Annotation.AnnotationText="DEV NOTE: 2026.09.23&#xD;&#xA;This conditional is added due to Config loading for Testing removes the Assets key, leading the rest of this sequence to fail." Condition="[Assets is Nothing]" DisplayName="If - No Assets found" sap:VirtualizedContainerService.HintSize="488,134" sap2010:WorkflowViewState.IdRef="If_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,108" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Return sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="Return_1" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each currentAsset" sap:VirtualizedContainerService.HintSize="488,840" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Assets]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="njl:JToken">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="njl:JToken" Name="currentAsset" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540.6666666666666,666.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,709" sap2010:WorkflowViewState.IdRef="Sequence_7">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="assetValue" />
               </Sequence.Variables>
@@ -258,20 +283,20 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Catch - Load asset in Config Json" sap:VirtualizedContainerService.HintSize="506.6666666666667,606.6666666666666" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch DisplayName="Try Catch - Load asset in Config Json" sap:VirtualizedContainerService.HintSize="452,649" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <TryCatch.Try>
-                  <Sequence DisplayName="Load asset in Config Json" sap:VirtualizedContainerService.HintSize="468,344.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence DisplayName="Load asset in Config Json" sap:VirtualizedContainerService.HintSize="450,402" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[currentAsset.First.ToString]" CacheStrategy="None" DisplayName="Get Asset - from Config Json" FolderPath="[in_OrchestratorQueueFolder]" sap:VirtualizedContainerService.HintSize="434,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+                    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[currentAsset.First.ToString]" CacheStrategy="None" DisplayName="Get Asset - from Config Json" FolderPath="[in_OrchestratorQueueFolder]" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
                       <ui:GetRobotAsset.Value>
                         <OutArgument x:TypeArguments="x:String">[assetValue]</OutArgument>
                       </ui:GetRobotAsset.Value>
                     </ui:GetRobotAsset>
-                    <Assign DisplayName="Assign - Config asset value" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign DisplayName="Assign - Config asset value" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_2">
                       <Assign.To>
                         <OutArgument x:TypeArguments="njl:JToken">[out_ConfigJson(currentAsset.First.ToString)]</OutArgument>
                       </Assign.To>
@@ -293,7 +318,7 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Failed loading asset" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <Sequence DisplayName="Failed loading asset" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_11">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -332,7 +357,7 @@
           </ActivityAction>
         </ui:ForEach.Body>
       </ui:ForEach>
-      <InvokeMethod sap2010:Annotation.AnnotationText="Remove Assets from config json" DisplayName="Invoke Method - Remove Assets from config json" sap:VirtualizedContainerService.HintSize="574.6666666666666,192" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Remove">
+      <InvokeMethod sap2010:Annotation.AnnotationText="Remove Assets key from config json" DisplayName="Invoke Method - Remove Assets from config json" sap:VirtualizedContainerService.HintSize="488,191" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Remove">
         <InvokeMethod.TargetObject>
           <InArgument x:TypeArguments="njl:JObject">[out_ConfigJson]</InArgument>
         </InvokeMethod.TargetObject>
@@ -341,9 +366,7 @@
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <InArgument x:TypeArguments="x:String">
-          <Literal x:TypeArguments="x:String">Assets</Literal>
-        </InArgument>
+        <InArgument x:TypeArguments="x:String">Assets</InArgument>
       </InvokeMethod>
     </Sequence>
   </Sequence>

@@ -168,7 +168,7 @@
         "fileName": "Tests\\Reusables\\Email\\SendEmail\\SendEmail_TestCase.xaml"
       },
       {
-        "editingStatus": "InProgress",
+        "editingStatus": "Publishable",
         "testCaseId": "c2b87764-bbd5-4bc9-a7b8-c17c4fdf773a",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
