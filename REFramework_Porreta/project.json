@@ -16,7 +16,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.1.0",
-  "projectVersion": "1.0.1-alpha",
+  "projectVersion": "1.0.1",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -93,7 +93,7 @@
         "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
       },
       {
-        "editingStatus": "InProgress",
+        "editingStatus": "Publishable",
         "testCaseId": "d524da46-5bab-4162-b6fe-571052141b32",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
@@ -216,7 +216,7 @@
         "fileName": "Tests\\Porreta\\Notifications\\SendEmail_Exception_TestCase.xaml"
       },
       {
-        "editingStatus": "InProgress",
+        "editingStatus": "Publishable",
         "testCaseId": "a2e8be0e-0ff2-4bb2-bbac-7b3a557a67e8",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,

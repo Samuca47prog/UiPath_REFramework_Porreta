@@ -1,4 +1,4 @@
-I want you to create a doc string for my workflow in UiPath Studio based in the xaml code I will pass.
+﻿I want you to create a doc string for my workflow in UiPath Studio based in the xaml code I will pass.
 
 
 Use the following docstring structure:
@@ -21,7 +21,6 @@ Final HTML content after performing all replacements.
 
 ## Workflow Structure
 Use 2 to 3 sentences to describe how the workflow is implemented
-
 
 ## Error Handling
 Describe throws used in the workflow
