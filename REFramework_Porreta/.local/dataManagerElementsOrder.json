@@ -11,23 +11,7 @@
     {
       "Path": "Main.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "SuccessfulTransactionCount&StateMachine_1",
-        "TransactionItem&StateMachine_1",
-        "SystemException&StateMachine_1",
-        "BusinessException&StateMachine_1",
-        "TransactionNumber&StateMachine_1",
-        "Configjson&StateMachine_1",
-        "RetryNumber&StateMachine_1",
-        "TransactionField2&StateMachine_1",
-        "TransactionField1&StateMachine_1",
-        "TransactionID&StateMachine_1",
-        "dt_TransactionData&StateMachine_1",
-        "ConsecutiveSystemExceptions&StateMachine_1",
-        "SystemExceptionsAtInitCount&StateMachine_1",
-        "MaxSystemExceptionsAtInit&State_2",
-        "ShouldStop&Sequence_25"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "in_OrchestratorQueueFolder",
         "in_ConfigJsonAssetName",
@@ -237,12 +221,7 @@
     {
       "Path": "Tests/Reusables/Email/SendEmail/SendEmail_TestCase.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "ImageReplacements&Sequence_1",
-        "TextReplacements&Sequence_1",
-        "AttachementsFiles&Sequence_1",
-        "AttachementsFolders&Sequence_1"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "in_Recipients",
         "in_BodyHtmlFilePath",
@@ -301,13 +280,7 @@
     {
       "Path": "Reusables/OrchApi/OrchApiHttps_GetThisJob.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "url&Sequence_18",
-        "responseStatus&Sequence_18",
-        "responseContent&Sequence_18",
-        "responseJson&Sequence_18",
-        "responseHeaders&Sequence_11"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "out_JobJson",
         "out_Job",
@@ -473,23 +446,7 @@
     {
       "Path": "Mocks/Main_mock.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "SuccessfulTransactionCount&StateMachine_1",
-        "Configjson&StateMachine_1",
-        "TransactionItem&StateMachine_1",
-        "SystemException&StateMachine_1",
-        "BusinessException&StateMachine_1",
-        "TransactionNumber&StateMachine_1",
-        "RetryNumber&StateMachine_1",
-        "TransactionField2&StateMachine_1",
-        "TransactionField1&StateMachine_1",
-        "TransactionID&StateMachine_1",
-        "dt_TransactionData&StateMachine_1",
-        "ConsecutiveSystemExceptions&StateMachine_1",
-        "SystemExceptionsAtInitCount&StateMachine_1",
-        "MaxSystemExceptionsAtInit&State_2",
-        "ShouldStop&Sequence_25"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "in_TestScenario",
         "in_ConfigJsonAssetName",
@@ -515,11 +472,7 @@
     {
       "Path": "Tests/Porreta/Notifications/SendEmail_Exception_TestCase.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "ConfigJson&Sequence_1",
-        "TransactionItem&Sequence_1",
-        "BusinessException&Sequence_1"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "in_ExceptionOrigin",
         "in_OrchestratorQueueFolder"
@@ -530,9 +483,7 @@
     {
       "Path": "Tests/Main/Main_BREinInitialization_TestCase.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "excpt&Sequence_1"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "in_OrchestratorQueueName"
       ],
@@ -555,13 +506,7 @@
     {
       "Path": "Framework/InitAllSettingsJson.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "ConfigJsonLocalFullPath&Sequence_2",
-        "ConfigJsonLocalFullPath&Sequence_13",
-        "assetValue&Sequence_7",
-        "Assets&Sequence_6",
-        "ConfigJsonString&Sequence_2"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "out_ConfigJson",
         "in_OrchestratorQueueFolder",
@@ -573,9 +518,7 @@
     {
       "Path": "Tests/InitAllSettingsJson_Asset_TestCase.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "ConfigJson&Sequence_1"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "in_ConfigJsonAssetName",
         "in_OrchestratorQueueFolder"
@@ -586,9 +529,7 @@
     {
       "Path": "Tests/InitAllSettingsJson_LocalFile_TestCase.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "ConfigJson&Sequence_1"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "in_OrchestratorQueueFolder"
       ],
@@ -694,6 +635,14 @@
         "in_ConfigJson"
       ],
       "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/InitAllApplicationsTestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
       "AddedNamespaces": null
     }
   ]
