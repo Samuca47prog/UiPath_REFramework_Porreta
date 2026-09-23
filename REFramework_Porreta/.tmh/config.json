@@ -1,3 +1,9 @@
 {
-  "issueKeyTestcaseValues": {}
+  "issueKeyTestcaseValues": {},
+  "testManagerBasePath": "https://staging.uipath.com/universe/earth/testmanager_/",
+  "defaultProject": {
+    "id": "edbd7796-2ef8-0200-8835-0b4a29962871",
+    "name": "REF Porreta",
+    "key": "REFP"
+  }
 }

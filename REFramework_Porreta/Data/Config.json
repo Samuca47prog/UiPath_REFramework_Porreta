@@ -1,4 +1,4 @@
-{ /*Settings*/
+﻿{ /*Settings*/
     "Orchestrator": {
         "QueueName": "TestQueue", /* Orchestrator queue Name. The value must match with the queue name defined on Orchestrator. */
         "QueueFolder": "Porreta" /* Folder name. The value must match a folder defined in Orchestrator and queue specified as OrchestratorQueueName should be created in this folder. For classic folders leave the value field empty. */
@@ -13,7 +13,7 @@
     "Path":{
         "ScreenshotsFolder": "Exceptions_Screenshots" /*Where to save exceptions screenshots - can be a full or a relative path.*/
     },
-    "ProcessToKill": "notepad.exe", /* Define process to be killed in KillAllProcesses.xaml if in_ProcessToKill is null */
+    "ProcessToKill": "notepad.exe", /* Define process to be killed in KillAllProcesses.xaml if in_ProcessToKill is null. Process names are ; separated  */
 
     "Email": {
         "Exception":{
