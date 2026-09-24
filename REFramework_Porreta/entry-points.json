@@ -2,32 +2,9 @@
   "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
   "entryPoints": [
     {
-      "filePath": "Main.xaml",
-      "uniqueId": "ffc42da2-d24b-4df0-9206-7b9c1cb22b9f",
-      "type": "process",
-      "input": {
-        "type": "object",
-        "properties": {
-          "in_OrchestratorQueueName": {
-            "type": "string",
-            "description": "Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file."
-          },
-          "in_OrchestratorQueueFolder": {
-            "type": "string",
-            "description": "Allows the Orchestrator folder name where the queue is created to be passed as an argument, instead of only being defined in the configuration file."
-          },
-          "in_ConfigJsonAssetName": {
-            "type": "string",
-            "description": "Name of the config json asset"
-          },
-          "in_TestScenario": {
-            "type": "string",
-            "x-default-expression": "\"\"",
-            "default": ""
-          }
-        },
-        "required": []
-      }
+      "filePath": "Tests\\Framework\\Main.xaml",
+      "uniqueId": "9923b1a7-cde5-457c-9219-a9fd7c6d20c8",
+      "type": "process"
     }
   ]
 }

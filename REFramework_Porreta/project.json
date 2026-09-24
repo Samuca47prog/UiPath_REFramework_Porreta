@@ -16,7 +16,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.1.0",
-  "projectVersion": "1.0.1",
+  "projectVersion": "1.0.243968792",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -197,19 +197,6 @@
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "8d64ef59-7d39-42b4-ba38-51da2207170f",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\InitAllSettingsJson_LocalFile_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "1eeb17b7-6a82-4a3a-8b83-b2645ee0a583",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\InitAllSettingsJson_Asset_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
         "testCaseId": "c90179ce-73ad-4719-b7f3-d6217e3c9286",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
@@ -228,6 +215,19 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Main\\Main_SEinProcess_SuccessJobPerConfigFlag_TestCase.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "8d64ef59-7d39-42b4-ba38-51da2207170f",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Framework\\InitAllSettingsJson_LocalFile_TestCase.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "1eeb17b7-6a82-4a3a-8b83-b2645ee0a583",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Framework\\InitAllSettingsJson_Asset_TestCase.xaml"
       }
     ],
     "saveToCloud": false
