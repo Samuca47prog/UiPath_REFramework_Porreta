@@ -43,7 +43,7 @@
     },
     "processOptions": {
       "ignoredFiles": [
-        "Reusables/Email/Metadata/Metadata_Replacements.xaml",
+        "Tests\\Reusables\\Email\\Metadata\\Metadata_InBodyReplacements_TestFixture.xaml",
         "Framework/Porreta/ShouldReleaseThisMachine.xaml",
         "Reusables/OrchApi/OrchApiHttps_RestartJob.xaml",
         "Reusables/OrchApi/OrchApiHttps_GetThisJob.xaml"
@@ -100,21 +100,14 @@
         "fileName": "Tests\\Reusables\\KillProcesses_TestCase.xaml"
       },
       {
-        "editingStatus": "InProgress",
+        "editingStatus": "Publishable",
         "testCaseId": "9078fc7e-e7f7-459f-9784-ccb3c361ce19",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Reusables\\Email\\Metadata\\Metadata_BuildBody_TestCase.xaml"
       },
       {
-        "editingStatus": "InProgress",
-        "testCaseId": "0ddf95e4-e062-4fab-8658-ea6b9831509e",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Reusables\\Email\\SendEmail\\SendEmail_IntegrationsService_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
+        "editingStatus": "Publishable",
         "testCaseId": "178291e4-3ae3-434c-96b3-06750fe6ba8a",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
@@ -159,13 +152,6 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Reusables\\OrchApi\\OrchApiHttps_GetThisJob_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "bfdd021b-f769-4d91-a47b-ab497433c085",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Reusables\\Email\\SendEmail\\SendEmail_TestCase.xaml"
       },
       {
         "editingStatus": "Publishable",
@@ -228,6 +214,20 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Framework\\InitAllSettingsJson_Asset_TestCase.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "bfdd021b-f769-4d91-a47b-ab497433c085",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Reusables\\Email\\SendEmail\\SendEmail_IntegrationService_WithAttachments_TestCase.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "0ddf95e4-e062-4fab-8658-ea6b9831509e",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Reusables\\Email\\SendEmail\\SendEmail_IntegrationService_TestCase.xaml"
       }
     ],
     "saveToCloud": false
