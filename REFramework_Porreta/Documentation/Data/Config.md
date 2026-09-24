@@ -1,4 +1,4 @@
-# 📁 Config JSON in REFramework
+﻿# 📁 Config JSON in REFramework
 
 This project uses a **JSON file** to manage configuration settings in place of the traditional `Config.xlsx`. The JSON structure organizes keys into hierarchical groups, improving readability and maintainability.
 
@@ -73,3 +73,10 @@ ConfigJson variable is loaded with `InitAllSettingsJson.xaml`.
 2. Uses `Deserialize JSON` activity to convert it into a `JObject`.
 3. Uses a custom routine or invoke code to flatten `"Assets"` into the root config.
 
+---
+
+## ☁️ Use Local or Asset JSON
+
+Both Local Config.Json or Asset can be used.
+- To use local Config from `Data\Config.Json`, let in_ConfigJsonAssetName empty in InitAllSettingsJson
+- To use Asset Config from Orchestrator folder in_OrchestratorQueueFolder, use `in_ConfigJsonAssetName`

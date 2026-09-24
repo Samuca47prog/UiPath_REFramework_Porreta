@@ -175,7 +175,7 @@
         "fileName": "Tests\\Main\\Main_SEinInitialization_TestCase.xaml"
       },
       {
-        "editingStatus": "InProgress",
+        "editingStatus": "Publishable",
         "testCaseId": "3d9098fc-b9a5-45f4-a6a9-2c2f394aa534",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
@@ -189,7 +189,7 @@
         "fileName": "Tests\\Main\\Main_BREInProcess_TestCase.xaml"
       },
       {
-        "editingStatus": "InProgress",
+        "editingStatus": "Publishable",
         "testCaseId": "75501317-2426-45c8-994e-41fe92e44ad5",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
@@ -221,6 +221,13 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Framework\\KillAllProcesses_TestCase.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "9d909450-bb6a-4911-b834-43332769a579",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Main\\Main_SEinProcess_SuccessJobPerConfigFlag_TestCase.xaml"
       }
     ],
     "saveToCloud": false
