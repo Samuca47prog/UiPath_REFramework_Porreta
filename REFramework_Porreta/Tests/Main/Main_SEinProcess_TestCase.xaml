@@ -96,7 +96,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main_SEinProcess_TestCase" sap:VirtualizedContainerService.HintSize="1044,1454" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main_SEinProcess_TestCase" sap:VirtualizedContainerService.HintSize="761,1454" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:Exception" Name="excpt" />
     </Sequence.Variables>
@@ -135,7 +135,6 @@
               <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueName">[in_OrchestratorQueueName]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorQueueFolder">[in_OrchestratorQueueFolder]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_ConfigJsonAssetName" />
-              <InArgument x:TypeArguments="x:String" x:Key="in_TestScenario" />
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </TryCatch.Try>

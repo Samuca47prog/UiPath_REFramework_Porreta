@@ -3,16 +3,10 @@
     <x:Property sap2010:Annotation.AnnotationText="Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file." Name="in_OrchestratorQueueName" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Allows the Orchestrator folder name where the queue is created to be passed as an argument, instead of only being defined in the configuration file." Name="in_OrchestratorQueueFolder" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Name of the config json asset" Name="in_ConfigJsonAssetName" Type="InArgument(x:String)" />
-    <x:Property Name="in_TestScenario" Type="InArgument(x:String)" />
   </x:Members>
   <this:Main.in_ConfigJsonAssetName>
     <InArgument x:TypeArguments="x:String" />
   </this:Main.in_ConfigJsonAssetName>
-  <this:Main.in_TestScenario>
-    <InArgument x:TypeArguments="x:String">
-      <Literal x:TypeArguments="x:String" Value="" />
-    </InArgument>
-  </this:Main.in_TestScenario>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
@@ -140,7 +134,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <StateMachine InitialState="{x:Reference __ReferenceID1}" sap2010:Annotation.AnnotationText="[RE Framework Porreta]&#xA;[Enhenced REF]&#xA;[Samuel Simão, samuelsimao47@gmail.com]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1050,628" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID1}" sap2010:Annotation.AnnotationText="[RE Framework Porreta]&#xA;[Enhenced REF]&#xA;[Samuel Simão, samuelsimao47@gmail.com]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="981,604" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -922,9 +916,7 @@
                               </ui:InvokeWorkflowFile>
                             </Sequence>
                           </Transition.Action>
-                          <Transition.Condition>
-                            <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="BusinessException IsNot Nothing Or (SystemException IsNot Nothing AndAlso SystemExceptionsAtInitCount &gt;= Cint(Configjson(&quot;Max&quot;)(&quot;SystemExceptionsAtInitialization&quot;)))" />
-                          </Transition.Condition>
+                          <Transition.Condition>[BusinessException IsNot Nothing Or (SystemException IsNot Nothing AndAlso SystemExceptionsAtInitCount &gt;= Cint(Configjson("Max")("SystemExceptionsAtInitialization")))]</Transition.Condition>
                         </Transition>
                         <Transition DisplayName="System exception (Retry)" sap:VirtualizedContainerService.HintSize="553,785" sap2010:WorkflowViewState.IdRef="Transition_9">
                           <sap:WorkflowViewStateService.ViewState>
