@@ -35,7 +35,7 @@ Main tested through `Mocks/Main_mock.xaml`, driven by `Test.Scenario` and the qu
 → [Tests/README.md](../../Tests/README.md)
 
 ### Documentation
-Documentation rules defined in [AGENTS.md](../../AGENTS.md): the annotation holds the contract, the markdown holds how-to and why. Notes moved next to their modules. Index added in [Documentation/README.md](../README.md).
+Documentation rules defined in [AGENTS.md](../../AGENTS.md): the annotation holds the contract, the markdown holds how-to and why. Notes moved next to their modules. The index moved from `Documentation/README.md` to the project root [README.md](../../README.md) (2026.09.29), which now opens with the list of features the project implements, each linked to its note.
 
 ## Cycle 2
 

@@ -11,14 +11,7 @@ Priority: **P1** = wrong behavior / can crash the job · **P2** = misleading or 
 - [ ] **P1 · Config load failure crashes Main** — `Main.xaml` Initialization. If `InitAllSettingsJson` throws (e.g. asset not found), `Configjson` stays Nothing.
   - ~~The Exception transition then calls `SendEmail_Exception` with a null config → NullReferenceException in the transition.~~ Covered since 2026.09.29: the NullReferenceException is caught inside `SendEmail_Exception` and logged at Error.
   - Still open: the Exception transition condition `Cint(Configjson("Max")(...))` throws on an SE while loading, and End Process's Faulted rule `CBool(Configjson("FlowControl")(...))` throws after a BRE while loading. Guard both with `Configjson IsNot Nothing`. → [Main.md](../Main.md)
-> Solved this by
-> 1. Setting Config Asset as dependency or Use Local Config.
-> 2. Adding FlowControl flag in config to throw or not when asset is not found in InitAllSettingsJson
-
-- [-] **P1 · Asset key resolution** — `InitAllSettingsJson.xaml`, For Each Assets. `currentAsset.First.ToString` (the asset **name**) is used as the root key. It should be `CType(currentAsset, JProperty).Name` as the key and `.Value` as the asset name. It works today only because key = value (`ProcessToKill`). → [Config.md](../Config.md)
-> This is working fine
-
-
+- [ ] **P1 · Asset key resolution** — `InitAllSettingsJson.xaml`, For Each Assets. `currentAsset.First.ToString` (the asset **name**) is used as the root key. It should be `CType(currentAsset, JProperty).Name` as the key and `.Value` as the asset name. It works today only because key = value (`ProcessToKill`). → [Config.md](../Config.md)
 - [ ] **P2 · Faulted reason loses the exception** — `Main.xaml` End Process → Terminate Workflow. After a Process SE, Initialization clears `SystemException`, so `Exception=[SystemException]` is Nothing and the reason says "System Exception was cleaned". Keep a `LastException` variable, set in the Process catches and the Initialization catches, and use it in Terminate (then update `Main_SEinProcess_TestCase`).
 - [ ] **P2 · Wrong counts in the Faulted reason** — the reason prints `TransactionNumber` and `SuccessfulTransactionCount`, which both have a +1 offset, and the text says "processed". Print `TransactionNumber - 1` and `SuccessfulTransactionCount - 1`.
 - [ ] **P2 · Max consecutive system exceptions gets retried** — `Main.xaml` Initialization. The "Throw Consecutive Exceptions exceeded" exception is caught as an init SE, so the init retry runs and `Exception_inInit` is sent. Throw it as a separate, identifiable exception (or set a flag) and skip the retry in that case.

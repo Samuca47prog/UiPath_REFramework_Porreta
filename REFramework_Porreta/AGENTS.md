@@ -54,11 +54,11 @@ Rules:
 ## 2. Markdown — how to use it and why
 
 ### Where the file goes
+- **Project index** → `README.md` at the project root: what the project implements (one line + link per feature), these rules in short, and an **index of every note in the project**.
 - **Module / folder level** → next to the workflows, as `README.md` in that folder (or `<Workflow>.md` when the folder has a single main workflow).
   If the folder is copied to another project, its documentation goes with it.
   Examples: `Reusables/Email/README.md`, `Reusables/OrchApi/README.md`, `Reusables/Email/Notifications/Notifications.md`, `Code_Snippets/README.md`, `Tests/README.md`.
 - **Cross-cutting / project level** → `Documentation/`.
-  - `Documentation/README.md` — these rules in short + an **index of every note in the project**.
   - `Documentation/Config.md` — config contract and loading behavior.
   - `Documentation/Main.md` — Main.xaml state machine: transitions, retries, counters, Faulted rule, notifications.
   - `Documentation/ProjectManagement/Updates.md` — changelog.
@@ -112,12 +112,12 @@ Leave out a section that doesn't apply; don't add filler.
 - [ ] The root annotation docstring matches the arguments and the error behavior.
 - [ ] The module markdown is updated if usage, a convention or a design decision changed.
 - [ ] `Config.json` comments are updated if a config key was added or changed.
-- [ ] `Documentation/README.md` index is updated if a note was added, moved or renamed.
+- [ ] The root `README.md` is updated if a feature or a note was added, moved or renamed (feature list and index).
 - [ ] `Updates.md` has an entry; DEV NOTEs are resolved or dated.
 - [ ] Names in the docs match the files (e.g. `KillAllProcesses.xaml`, not `KillAllProcess`).
 
 ## 6. Notes for AI agents
-- Read this file, `Documentation/README.md` and the module's markdown before changing a module.
+- Read this file, the root `README.md` and the module's markdown before changing a module.
 - Treat the XAML as the source of truth. If a note and the code disagree, report the mismatch; don't silently "fix" either one.
 - Editing XAML: only the `sap2010:Annotation.AnnotationText` attribute may be changed without an explicit request. Keep XML escaping intact (`&#xA;` for newlines, `&quot;`, `&lt;`, `&gt;`, `&amp;`) and don't reformat or reorder the rest of the file. Any other XAML change requires the user's approval.
 - Write in English, and keep the dense, technical tone of the existing notes.
