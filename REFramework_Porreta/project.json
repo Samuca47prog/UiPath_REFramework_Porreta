@@ -200,48 +200,6 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Framework\\InitAllSettingsJson_AssetNotFoundNOException_TestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "010e3b94-b337-4971-bf51-216f36261106",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\Default\\WorkflowTestCaseTemplate.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "ad13c96e-e028-4e26-a17f-70a5f8632d67",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\Default\\ProcessTestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "3c9e8d6e-7162-418b-a486-2c7fa9e3f05d",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\Default\\MainTestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "2dc7f994-d631-496a-a668-7df538f60998",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\Default\\InitAllSettingsTestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "a8ba91f7-3c2e-4ae1-8d8d-dc4a8eec1ba9",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\Default\\InitAllApplicationsTestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "f74c16ec-df3d-4432-80d3-182517eadb1e",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\Default\\GetTransactionDataTestCase.xaml"
       }
     ],
     "saveToCloud": false
