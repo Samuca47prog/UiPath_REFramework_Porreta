@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:utam="clr-namespace:UiPath.Testing.Activities.Mocks;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file." Name="in_OrchestratorQueueName" Type="InArgument(x:String)" />
@@ -999,7 +1000,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:Comment DisplayName="Comment (exception transition)" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Comment_2" Text="Exception transition goes to end process" />
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_Exception - Exception_inInit - Invoke Workflow File (Framework\Porreta\Notifications\SendEmail_Exception.xaml)" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="Framework\Porreta\Notifications\SendEmail_Exception.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_Exception - Exception_inInit - Invoke Workflow File (Framework\Porreta\Notifications\SendEmail_Exception.xaml)" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="Reusables\Email\Notifications\SendEmail_Exception.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <InArgument x:TypeArguments="njl:JObject" x:Key="in_ConfigJson">[Configjson]</InArgument>
                                   <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">[if(IsNothing(BusinessException), SystemException, BusinessException)]</InArgument>
@@ -1046,7 +1047,7 @@
                     </State>
                   </Transition.To>
                   <Transition.Action>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_Exception - SE_inProcess - Invoke Workflow File (Framework\Porreta\Notifications\SendEmail_Exception.xaml)" sap:VirtualizedContainerService.HintSize="338.6666666666667,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_36" UnSafe="False" WorkflowFileName="Framework\Porreta\Notifications\SendEmail_Exception.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_Exception - SE_inProcess - Invoke Workflow File (Framework\Porreta\Notifications\SendEmail_Exception.xaml)" sap:VirtualizedContainerService.HintSize="338.6666666666667,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_36" UnSafe="False" WorkflowFileName="Reusables\Email\Notifications\SendEmail_Exception.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="njl:JObject" x:Key="in_ConfigJson">[Configjson]</InArgument>
                         <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">[SystemException]</InArgument>
@@ -1071,7 +1072,7 @@
                     <x:Reference>__ReferenceID0</x:Reference>
                   </Transition.To>
                   <Transition.Action>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_Exception - BRE_inProcess - Invoke Workflow File (Framework\Porreta\Notifications\SendEmail_Exception.xaml)" sap:VirtualizedContainerService.HintSize="340.6666666666667,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="Framework\Porreta\Notifications\SendEmail_Exception.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmail_Exception - BRE_inProcess - Invoke Workflow File (Framework\Porreta\Notifications\SendEmail_Exception.xaml)" sap:VirtualizedContainerService.HintSize="340.6666666666667,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="Reusables\Email\Notifications\SendEmail_Exception.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="njl:JObject" x:Key="in_ConfigJson">[Configjson]</InArgument>
                         <InArgument x:TypeArguments="s:Exception" x:Key="in_Exception">[BusinessException]</InArgument>

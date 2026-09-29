@@ -62,6 +62,7 @@
       <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>UiPath.Platform</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -125,14 +126,14 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendEmail_IntegrationsService" sap:VirtualizedContainerService.HintSize="1364,729" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendEmail_IntegrationsService" sap:VirtualizedContainerService.HintSize="725,729" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Sending email with Integrations Service...&quot;]" />
-    <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" Attachments="[If(in_Attachments IsNot Nothing, in_Attachments.Select(Function(x) LocalResource.FromPath(x)), Nothing)]" AuthScopesInvalid="False" Bcc="[in_BCC]" Body="[in_Body]" Cc="[in_CC]" ConnectionId="a8eba03f-88de-4074-966b-8aabdba73215" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="450,531" sap2010:WorkflowViewState.IdRef="SendMailConnections_1" Importance="Normal" InputType="HTML" SaveAsDraft="[in_SaveAsDraft]" Subject="[in_Subject]" To="[in_Recipients]" UseConnectionService="True" UseSharedMailbox="False">
+    <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" AttachmentPaths="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Mailbox="{x:Null}" ReplyTo="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="Existing" Attachments="[If(in_Attachments IsNot Nothing, in_Attachments.Select(Function(x) LocalResource.FromPath(x)), Nothing)]" AuthScopesInvalid="False" Bcc="[in_BCC]" Body="[in_Body]" Cc="[in_CC]" ConnectionId="a8eba03f-88de-4074-966b-8aabdba73215" DisplayName="Send Email - Integration Service" sap:VirtualizedContainerService.HintSize="450,531" sap2010:WorkflowViewState.IdRef="SendMailConnections_1" Importance="Normal" InputType="HTML" SaveAsDraft="[in_SaveAsDraft]" Subject="[in_Subject]" To="[in_Recipients]" UseConnectionService="True" UseSharedMailbox="False">
       <umam:SendMailConnections.AttachmentsBackup>
         <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
           <usau:BackupSlot.BackupValues>
