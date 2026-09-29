@@ -8,7 +8,8 @@
     },
     "FlowControl":{
         "UpdateLocalConfig": false, /* If true, gets the asset value and save to the local config json */
-        "ShouldMarkJobAsFaulted": true /* Must be TRUE or FALSE. If the value is TRUE and an error occurs in Initialization state or the MaxConsecutiveSystemExceptions is reached, the job is marked as Faulted. */
+        "ShouldMarkJobAsFaulted": true, /* Must be TRUE or FALSE. If the value is TRUE and an error occurs in Initialization state or the MaxConsecutiveSystemExceptions is reached, the job is marked as Faulted. */
+		"NotFoundAssetThrowExceptionInInitialization": false, /* If True, an Asset not found in InitAllSettingsJson will throw error and kill the process */
     },
     "Path":{
         "ScreenshotsFolder": "Exceptions_Screenshots" /*Where to save exceptions screenshots - can be a full or a relative path.*/

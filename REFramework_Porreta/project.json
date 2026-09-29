@@ -228,6 +228,20 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Reusables\\Email\\Notifications\\SendEmail_Exception_TestCase.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "95b41d39-595a-44ca-9443-a7e943892ded",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Framework\\InitAllSettingsJson_AssetNotFoundRaiseException_TestCase.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "99dcc9df-0b5c-473e-adca-852f7f1221f5",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Framework\\InitAllSettingsJson_AssetNotFoundNOException_TestCase.xaml"
       }
     ],
     "saveToCloud": false
